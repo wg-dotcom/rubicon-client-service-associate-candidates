@@ -1,1414 +1,1528 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Client Service Associate Candidates — Rubicon</title>
-  <link rel="icon" type="image/png" href="https://www.rubicon.com/wp-content/uploads/2021/07/og-img-home-about.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Client Service Associate | Candidate Selection for Rubicon</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
     :root {
-      --primary: #7a00df;
-      --primary-dark: #6800be;
-      --primary-deeper: #55009c;
-      --dark: #005a87;
-      --highlight: #00d084;
-      --bg-light: #1f6e95;
-      --bg-subtle: #337b9f;
-      --bg-page: #00537c;
-      --bg-card: #146791;
-      --bg-card-hover: #247198;
-      --white: #FFFFFF;
-      --text-primary: #ffffff;
-      --text-mid: rgba(255,255,255,0.82);
-      --text-light: rgba(255,255,255,0.65);
-      --text-muted: rgba(255,255,255,0.5);
-      --on-dark: #ffffff;
-      --on-dark-mid: rgba(255,255,255,0.82);
-      --on-dark-light: rgba(255,255,255,0.65);
-      --on-dark-muted: rgba(255,255,255,0.15);
-      --border: rgba(255,255,255,0.14);
-      --border-strong: rgba(255,255,255,0.25);
-      --tag-bg: #7a00df33;
-      --tag-color: #a24de9;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
-      --shadow-md: 0 8px 30px rgba(0,0,0,0.5);
-      --radius: 14px;
-      --font-heading: 'Inter', sans-serif;
-      --font-body: 'Lora', sans-serif;
+        --rb-green: #00835a;
+        --rb-green-dark: #006344;
+        --rb-green-mid: #007350;
+        --rb-green-light: rgba(0, 131, 90, 0.08);
+        --rb-green-soft: rgba(0, 131, 90, 0.15);
+        --rb-dark: #0a1a14;
+        --rb-darker: #061210;
+        --rb-darkest: #030a07;
+        --rb-white: #ffffff;
+        --rb-light: #f4f8f6;
+        --rb-cream: #f9fcfa;
+        --rb-gray: #6b7280;
+        --rb-gray-dark: #374151;
+        --rb-gray-light: #e5e7eb;
+        --rb-accent: #059669;
+        --rb-accent-light: #34d399;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Lora', 'Inter', sans-serif; font-size: 16px; color: var(--text-dark); background: var(--bg-page); line-height: 1.6; }
 
-    .site-header { background: var(--bg-card); padding: 0 32px; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); border-bottom: 1px solid var(--border); }
-    .header-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .header-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text-primary); }
-    .header-brand img { height: 32px; width: auto; }
-    .header-divider { width: 1px; height: 28px; background: var(--border); }
-    .header-title { font-family: var(--font-heading); font-weight: 600; font-size: 14px; color: var(--text-primary); opacity: 0.7; letter-spacing: 0.03em; }
-    .header-sagan { display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 12px; font-weight: 600; color: var(--text-mid); letter-spacing: 0.03em; text-transform: uppercase; }
+    body {
+        font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+        color: var(--rb-dark);
+        background: var(--rb-white);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
 
-    .hero { background: linear-gradient(145deg, var(--dark) 0%, var(--primary-deeper) 40%, var(--primary) 100%); color: var(--white); padding: 72px 32px 64px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, #00d0841a 0%, transparent 70%); border-radius: 50%; }
-    .hero-eyebrow { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 100px; padding: 6px 18px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 22px; color: var(--highlight); }
-    .hero h1 { font-family: var(--font-heading); font-size: clamp(30px, 5vw, 48px); font-weight: 800; line-height: 1.15; max-width: 720px; margin: 0 auto 16px; letter-spacing: -0.02em; }
-    .hero-sub { font-size: 18px; color: var(--on-dark-mid); max-width: 620px; margin: 0 auto 36px; font-weight: 400; line-height: 1.6; }
-    .hero-meta { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
-    .hero-meta-item { display: flex; align-items: center; gap: 8px; color: var(--on-dark-mid); font-size: 13px; font-weight: 500; }
-    .hero-meta-item svg { width: 16px; height: 16px; }
-    .hero-meta-item strong { color: white; }
+    /* ===== HERO ===== */
+    .hero {
+        background: var(--rb-darker);
+        color: var(--rb-white);
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+    }
 
-    .intro-note { max-width: 900px; margin: -32px auto 0; padding: 0 24px; position: relative; z-index: 10; }
-    .intro-card { background: var(--bg-card); border-radius: var(--radius); padding: 28px 32px; box-shadow: var(--shadow-md); border-left: 4px solid var(--primary); font-size: 15px; color: var(--text-mid); line-height: 1.7; }
-    .intro-card p { margin-bottom: 10px; }
-    .intro-card p:last-child { margin-bottom: 0; }
+    .hero-top-bar {
+        background: linear-gradient(90deg, var(--rb-green), var(--rb-accent-light));
+        height: 4px;
+        width: 100%;
+    }
 
-    .batch-info { text-align: center; margin: 32px 0 8px; }
-    .batch-pill { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 13px; color: var(--text-light); }
-    .batch-num { font-weight: 700; color: var(--primary); }
+    .hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 70% 50%, rgba(0, 131, 90, 0.1) 0%, transparent 65%);
+        pointer-events: none;
+    }
 
-    .batch-switcher { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 8px auto 36px; max-width: 800px; padding: 0 24px; }
-    .batch-switcher[data-count="1"] { display: none; }
-    .batch-btn { display: flex; align-items: center; gap: 8px; padding: 11px 22px; border: 2px solid var(--border); border-radius: 10px; background: var(--bg-card); font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-light); cursor: pointer; transition: all 0.2s ease; }
-    .batch-btn:hover { border-color: var(--primary); color: var(--text-primary); }
-    .batch-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
-    .batch-count { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: white; font-size: 11px; font-weight: 700; }
-    .batch-btn.active .batch-count { background: var(--highlight); color: var(--dark); }
-    .batch-panel.hidden { display: none; }
+    .hero-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 40px 72px;
+        position: relative;
+        z-index: 2;
+    }
 
-    .section-label { text-align: center; padding: 24px 24px 28px; }
-    .section-label h2 { font-family: var(--font-heading); font-size: 26px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px; }
-    .section-label p { font-size: 15px; color: var(--text-light); }
+    .hero-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 50px;
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+    }
 
-    .candidates { max-width: 900px; margin: 0 auto; padding: 0 24px 40px; display: flex; flex-direction: column; gap: 24px; }
+    .hero-brand .logo-img {
+        height: 36px;
+        width: auto;
+        filter: brightness(0) invert(1);
+    }
 
-    .candidate-card { max-width: 1100px; margin: 0 auto 40px; padding: 0 40px; }
-    .card { background: var(--bg-card); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-md); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0,0,0,0.4); border-color: #7a00df33; }
-    .card.featured { border-color: #7a00df55; box-shadow: 0 4px 32px #7a00df1a; }
-    .card-top { background: var(--dark); padding: 36px 44px; display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--border); }
+    .hero-brand .logo-sep {
+        width: 1px;
+        height: 28px;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-brand .logo-sub {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 1px;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background: var(--rb-green-soft);
+        border: 1px solid rgba(0, 131, 90, 0.4);
+        color: var(--rb-accent-light);
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 8px 20px;
+        border-radius: 100px;
+        margin-bottom: 28px;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.15s forwards;
+    }
+
+    .hero h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 50px;
+        font-weight: 400;
+        line-height: 1.18;
+        letter-spacing: -0.5px;
+        margin-bottom: 24px;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+
+    .hero h1 strong { font-weight: 700; color: var(--rb-white); }
+
+    .hero-subtitle {
+        font-size: 17px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.55);
+        max-width: 660px;
+        line-height: 1.8;
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.45s forwards;
+    }
+
+    .hero-meta {
+        display: flex;
+        gap: 40px;
+        margin-top: 48px;
+        padding-top: 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        opacity: 0;
+        animation: fadeUp 0.8s ease 0.6s forwards;
+        flex-wrap: wrap;
+    }
+
+    .hero-meta-item { display: flex; flex-direction: column; gap: 5px; }
+
+    .hero-meta-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(0, 131, 90, 0.9);
+    }
+
+    .hero-meta-value {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* ===== EDITORIAL ===== */
+    .editorial {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 80px 40px;
+    }
+
+    .section-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--rb-green);
+        margin-bottom: 18px;
+    }
+
+    .editorial h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin-bottom: 28px;
+        color: var(--rb-dark);
+        line-height: 1.25;
+    }
+
+    .editorial p { font-size: 16px; line-height: 1.9; color: var(--rb-gray); margin-bottom: 20px; }
+    .editorial p strong { color: var(--rb-dark); font-weight: 600; }
+
+    .editorial-divider { width: 48px; height: 3px; background: var(--rb-green); border-radius: 2px; margin: 44px 0; }
+
+    /* ===== CANDIDATES SECTION ===== */
+    .candidates-section { background: var(--rb-light); padding: 80px 0; }
+
+    .candidates-header {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 40px;
+        margin-bottom: 52px;
+    }
+
+    .candidates-header h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin-bottom: 10px;
+        color: var(--rb-dark);
+    }
+
+    .candidates-header p { font-size: 16px; color: var(--rb-gray); }
+
+    .candidate-card { max-width: 1100px; margin: 0 auto 36px; padding: 0 40px; }
+
+    .card {
+        background: var(--rb-white);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover { transform: translateY(-2px); box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.1); }
+
+    .card-top {
+        background: var(--rb-dark);
+        padding: 36px 44px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
     .card-identity { display: flex; align-items: center; gap: 20px; }
-    .card-avatar { width: 60px; height: 60px; border-radius: 50%; background: #7a00df26; border: 2px solid #7a00df4d; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-family: var(--font-heading); }
-    .card-avatar.featured-avatar { background: var(--primary); border-color: var(--primary); color: var(--dark); }
-    .card-name { font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--on-dark); margin-bottom: 4px; }
-    .card-location { font-size: 14px; color: var(--on-dark-mid); display: flex; align-items: center; gap: 6px; }
-    .card-badges { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-    .badge { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
-    .badge-shortlisted { background: #7a00df33; color: var(--primary); border: 1px solid #7a00df66; }
+
+    .card-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--rb-green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--rb-white);
+        flex-shrink: 0;
+    }
+
+    .card-name { font-size: 22px; font-weight: 700; color: var(--rb-white); margin-bottom: 5px; }
+
+    .card-name-badge { color: var(--rb-accent-light); font-size: 12px; font-weight: 600; margin-left: 8px; }
+
+    .card-location { font-size: 13px; color: rgba(255, 255, 255, 0.45); display: flex; align-items: center; gap: 6px; }
+
     .card-rate { text-align: right; }
-    .card-rate-amount { font-size: 24px; font-weight: 700; color: var(--primary); font-family: var(--font-heading); }
-    .card-rate-period { font-size: 11px; color: var(--on-dark-mid); text-transform: uppercase; letter-spacing: 1px; }
-    .tap-badge { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
 
-    .tags-row { padding: 0 44px 16px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { display: inline-block; padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; }
-    .tag-filled { background: var(--tag-bg); color: var(--tag-color); }
-    .tag-filled:nth-child(3) { background: var(--highlight); color: var(--dark); }
-    .tag-outlined { background: var(--bg-subtle); color: var(--text-mid); border: 1.5px solid var(--border-strong); }
+    .card-rate-amount {
+        font-family: 'Poppins', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--rb-accent-light);
+    }
 
-    .card-body { padding: 40px 44px; color: var(--text-mid); }
-    .card-section { margin-bottom: 0; }
-    .card-section-title { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; margin-top: 32px; font-family: var(--font-heading); }
+    .card-rate-period {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.35);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .card-body { padding: 40px 44px; }
+
+    .card-narrative {
+        font-size: 16px;
+        line-height: 1.85;
+        color: var(--rb-gray);
+        margin-bottom: 32px;
+        font-style: italic;
+        border-left: 3px solid var(--rb-green);
+        padding-left: 20px;
+    }
+
+    .card-narrative strong { color: var(--rb-dark); font-weight: 600; font-style: normal; }
+
+    .card-section-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--rb-gray-dark);
+        margin-bottom: 16px;
+        margin-top: 32px;
+    }
+
     .card-section-title:first-of-type { margin-top: 0; }
-    .card-narrative { font-size: 16px; line-height: 1.85; color: var(--text-mid); margin-bottom: 32px; font-style: italic; border-left: 3px solid var(--primary); padding-left: 20px; }
-    .card-narrative strong { color: var(--text-primary); font-weight: 600; font-style: normal; }
-    .experience-list { display: flex; flex-direction: column; gap: 14px; }
+
+    /* Experience */
     .experience-list { display: flex; flex-direction: column; gap: 20px; }
     .exp-item { display: flex; gap: 16px; align-items: flex-start; }
     .exp-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 6px; }
-    .exp-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--primary); flex-shrink: 0; }
-    .exp-line { width: 1px; flex: 1; background: #7a00df33; margin-top: 6px; min-height: 30px; }
+    .exp-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--rb-green); flex-shrink: 0; }
+    .exp-line { width: 2px; flex: 1; background: var(--rb-gray-light); margin-top: 6px; }
     .exp-content { flex: 1; padding-bottom: 4px; }
-    .exp-role { font-size: 15px; font-weight: 600; color: var(--text-primary); }
-    .exp-company { font-size: 13px; color: var(--text-light); margin-top: 2px; }
-    .exp-highlight { font-size: 13px; color: var(--primary); margin-top: 4px; }
-    .tags-cluster { display: flex; flex-wrap: wrap; gap: 8px; }
-    .ctag { font-size: 12px; padding: 6px 14px; border-radius: 6px; background: var(--bg-subtle); color: var(--text-mid); }
-    .ctag-key { background: #7a00df1a; color: var(--primary); font-weight: 600; }
-    .fit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .fit-item { background: var(--bg-subtle); padding: 14px 16px; border-radius: 8px; border: 1px solid var(--border-strong); overflow: visible; word-wrap: break-word; }
-    .fit-label { font-size: 12px; color: var(--text-mid); line-height: 1.5; display: block; overflow: visible; white-space: normal; }
-    .strength-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; }
-    .bar-item { display: flex; flex-direction: column; gap: 6px; }
-    .bar-label { font-size: 13px; color: var(--text-mid); }
-    .bar-track { height: 5px; background: var(--bg-subtle); border-radius: 3px; overflow: hidden; }
-    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--highlight)); border-radius: 3px; transition: width 1.5s ease; }
-    .card-actions { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 14px; }
-    .video-intro-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: transparent; border: 1.5px solid var(--primary); border-radius: 6px; color: var(--primary); font-size: 13px; font-weight: 600; letter-spacing: 0.3px; text-decoration: none; transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease; }
-    .video-intro-btn:hover { background: var(--primary); color: #fff; transform: translateY(-1px); }
+    .exp-role { font-size: 14px; font-weight: 600; color: var(--rb-dark); }
+    .exp-company { font-size: 13px; color: var(--rb-gray); }
+    .exp-date { font-size: 12px; color: rgba(107, 114, 128, 0.7); margin-top: 2px; }
+    .exp-highlight { font-size: 13px; color: var(--rb-green); font-weight: 500; margin-top: 4px; }
 
-    .experience-item { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--border); }
-    .exp-dates { font-size: 12px; color: var(--text-light); white-space: nowrap; }
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
-    .strength-list { padding-left: 18px; }
-    .strength-list li { font-size: 14px; color: var(--text-mid); margin-bottom: 8px; line-height: 1.6; }
-
-    .card-footer { display: flex; align-items: center; justify-content: space-between; padding: 16px 44px; background: var(--bg-subtle); border-top: 1px solid var(--border); }
-    .footer-note { font-size: 13px; color: var(--text-light); }
-    .footer-note strong { color: var(--text-primary); }
-    .btn-group { display: flex; gap: 8px; }
-    .btn-card { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 8px; font-family: var(--font-heading); font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.15s; cursor: pointer; }
-    .btn-outline { background: var(--bg-card); color: var(--primary); border: 1.5px solid var(--primary); }
-    .btn-outline:hover { background: var(--tag-bg); }
-    .btn-primary-card { background: var(--primary); color: white; border: 1.5px solid var(--primary); }
-    .btn-primary-card:hover { background: var(--primary-dark); }
-    .btn-card svg { width: 15px; height: 15px; }
-    .btn-tap { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border: none; }
-
-    .card-recruiter-note { margin: 0; padding: 16px 20px; }
-    .card-recruiter-note .recruiter-note-title { font-family: var(--font-heading); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary); margin-bottom: 8px; }
-    .card-recruiter-note p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
-
-    .comparison-section { max-width: 1100px; margin: 20px auto 40px; padding: 0 40px; }
-    .comparison-table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
-    .comparison-table { width: 100%; border-collapse: collapse; background: var(--bg-card); font-size: 13px; color: var(--text-mid); border-radius: 12px; overflow: hidden; }
-    .comparison-table thead th { background: var(--dark); color: var(--primary); padding: 14px 16px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .comparison-table thead th:first-child { border-radius: 14px 0 0 0; }
-    .comparison-table thead th:last-child { border-radius: 0 14px 0 0; }
-    .comparison-table tbody td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
-    .comparison-table tbody tr:last-child td { border-bottom: none; }
-    .comparison-table tbody tr:hover { background: var(--bg-card-hover); }
-    .comparison-table .highlight-cell { background: #7a00df1a; font-weight: 600; color: var(--primary); }
-
-    .advisor-section { max-width: 1100px; margin: 0 auto 40px; padding: 0 40px; }
-    .advisor-card { display: flex; gap: 24px; background: var(--bg-card); border-radius: 16px; padding: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border); }
-    .advisor-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); flex-shrink: 0; }
-    .advisor-info { flex: 1; }
-    .advisor-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 4px; }
-    .advisor-name { font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-primary); }
-    .advisor-role { font-size: 13px; color: var(--text-light); margin-bottom: 10px; }
-    .advisor-summary { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
-
-    .site-footer { text-align: center; padding: 32px; color: var(--on-dark-light); font-size: 13px; border-top: 1px solid var(--on-dark-muted); background: var(--dark); }
-    .footer-logos { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px; }
-    .footer-logos img { height: 24px; opacity: 0.6; }
-    .footer-x { font-size: 18px; color: var(--border); }
-    .site-footer a { color: var(--primary); text-decoration: none; }
-
-    @media (max-width: 768px) {
-      .hero { padding: 48px 20px 40px; }
-      .card-top { flex-direction: column; padding: 24px; gap: 16px; }
-      .card-body { padding: 24px; }
-      .candidate-card { padding: 0 16px; }
-      .fit-grid { grid-template-columns: 1fr; }
-      .strength-bars { grid-template-columns: 1fr; }
-      .advisor-card { flex-direction: column; text-align: center; }
-      .comparison-table { font-size: 11px; }
+    .tag {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 12px;
+        font-weight: 500;
+        background: var(--rb-light);
+        color: var(--rb-dark);
+        border: 1px solid var(--rb-gray-light);
     }
-  </style>
+
+    .tag.key {
+        background: var(--rb-green-light);
+        border-color: rgba(0, 131, 90, 0.22);
+        color: var(--rb-green-dark);
+        font-weight: 600;
+    }
+
+    .tag.dark { background: var(--rb-dark); border-color: var(--rb-dark); color: var(--rb-white); }
+
+    /* Fit Grid */
+    .fit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 8px; }
+    .fit-item { background: var(--rb-light); border-radius: 10px; padding: 14px 16px; }
+    .fit-label { font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--rb-gray); margin-bottom: 5px; }
+    .fit-value { font-size: 13px; font-weight: 600; color: var(--rb-dark); }
+
+    /* Strength Bars */
+    .strength-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 28px; }
+    .strength-item { display: flex; flex-direction: column; gap: 6px; }
+    .strength-label { font-size: 13px; font-weight: 500; color: var(--rb-dark); }
+    .strength-bar-bg { height: 5px; background: var(--rb-light); border-radius: 3px; overflow: hidden; }
+    .strength-bar { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--rb-green-dark), var(--rb-green)); transition: width 1.5s ease; }
+
+    /* ===== COMPARISON ===== */
+    .why-section { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+
+    .why-section h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin-bottom: 12px;
+        color: var(--rb-dark);
+    }
+
+    .why-section .why-intro { font-size: 16px; line-height: 1.8; color: var(--rb-gray); margin-bottom: 32px; max-width: 700px; }
+
+    .table-wrap { overflow-x: auto; }
+
+    .comparison-table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 900px; }
+
+    .comparison-table thead th {
+        background: var(--rb-dark);
+        color: var(--rb-white);
+        padding: 12px 10px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: 0.3px;
+        font-family: 'Poppins', sans-serif;
+        white-space: nowrap;
+    }
+
+    .comparison-table thead th:first-child { border-radius: 8px 0 0 0; }
+    .comparison-table thead th:last-child { border-radius: 0 8px 0 0; }
+
+    .comparison-table tbody td { padding: 10px; border-bottom: 1px solid var(--rb-gray-light); color: var(--rb-dark); vertical-align: top; line-height: 1.4; }
+
+    .comparison-table tbody tr:last-child td { border-bottom: none; }
+    .comparison-table tbody tr:nth-child(even) { background: var(--rb-light); }
+
+    .check { color: var(--rb-accent); font-weight: 600; }
+
+    /* ===== RECRUITING TEAM ===== */
+    .team-section { background: var(--rb-light); padding: 80px 0; }
+    .team-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+    .team-section h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin-bottom: 10px;
+        color: var(--rb-dark);
+    }
+
+    .team-subtitle { font-size: 16px; color: var(--rb-gray); max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 620px; margin-bottom: 48px; }
+
+    .team-card {
+        background: var(--rb-white);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.06);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+    }
+
+    .team-card:hover { transform: translateY(-3px); box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.1); }
+
+    .team-card-top { background: var(--rb-dark); padding: 32px 24px 0; display: flex; flex-direction: column; align-items: center; }
+
+    .team-photo {
+        width: 92px;
+        height: 92px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--rb-green);
+        margin-bottom: -46px;
+        position: relative;
+        z-index: 2;
+        background: var(--rb-dark);
+    }
+
+    .team-card-body { padding: 58px 24px 28px; }
+    .team-name { font-size: 17px; font-weight: 700; color: var(--rb-dark); margin-bottom: 4px; }
+
+    .team-role {
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--rb-green);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 8px;
+    }
+
+    .team-location { font-size: 13px; color: var(--rb-gray); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+    .team-bio { font-size: 13px; line-height: 1.7; color: var(--rb-gray); }
+    .team-email { display: inline-block; margin-top: 14px; font-size: 13px; font-weight: 600; color: var(--rb-green); text-decoration: none; transition: color 0.2s ease; }
+    .team-email:hover { color: var(--rb-green-dark); }
+
+    /* Sagan Info */
+    .sagan-info {
+        background: var(--rb-white);
+        border-radius: 16px;
+        padding: 32px 40px;
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.06);
+    }
+
+    .sagan-logo-wrap { flex-shrink: 0; display: flex; align-items: center; }
+    .sagan-logo-wrap img { height: 36px; width: auto; }
+    .sagan-divider { width: 1px; height: 52px; background: var(--rb-gray-light); flex-shrink: 0; }
+    .sagan-text h3 { font-size: 17px; font-weight: 700; color: var(--rb-dark); margin-bottom: 6px; }
+    .sagan-text p { font-size: 14px; line-height: 1.7; color: var(--rb-gray); margin: 0; }
+    .sagan-text p strong { color: var(--rb-dark); font-weight: 600; }
+    .sagan-stats { display: flex; gap: 24px; margin-top: 12px; flex-wrap: wrap; }
+    .sagan-stat { display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--rb-gray); }
+    .sagan-stat strong { color: var(--rb-green); font-weight: 700; }
+
+    /* ===== FOOTER ===== */
+    .footer-cta { background: var(--rb-darker); color: var(--rb-white); text-align: center; padding: 72px 40px; }
+
+    .footer-cta h2 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 30px;
+        font-weight: 400;
+        margin-bottom: 14px;
+        letter-spacing: -0.3px;
+    }
+
+    .footer-cta h2 strong { font-weight: 700; }
+    .footer-cta p { font-size: 15px; color: rgba(255, 255, 255, 0.4); margin-bottom: 36px; }
+
+    .footer-contact {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--rb-green);
+        color: var(--rb-white);
+        padding: 14px 32px;
+        border-radius: 100px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .footer-contact:hover { background: var(--rb-green-dark); transform: translateY(-1px); }
+
+    /* ===== VIDEO BUTTON ===== */
+    .card-video {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 28px;
+        padding: 10px 24px;
+        background: var(--rb-green);
+        color: var(--rb-white);
+        border-radius: 100px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .card-video:hover { background: var(--rb-green-dark); transform: translateY(-1px); }
+
+    .card-resume {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 28px;
+        margin-left: 12px;
+        padding: 10px 24px;
+        background: transparent;
+        color: var(--rb-green);
+        border-radius: 100px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(0, 131, 90, 0.35);
+    }
+    .card-resume:hover { border-color: var(--rb-green); background: var(--rb-green-light); transform: translateY(-1px); }
+
+    .footer-bottom {
+        margin-top: 52px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-logo { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.25); }
+    .footer-note { font-size: 12px; color: rgba(255,255,255,0.18); }
+
+    /* ===== RECRUITER NOTE ===== */
+    .recruiter-note {
+        margin-top: 28px;
+        padding: 18px 22px;
+        background: linear-gradient(135deg, rgba(0, 131, 90, 0.05) 0%, rgba(0, 131, 90, 0.02) 100%);
+        border-left: 3px solid var(--rb-green);
+        border-radius: 0 10px 10px 0;
+    }
+    .recruiter-note-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: var(--rb-green);
+        margin-bottom: 8px;
+    }
+    .recruiter-note p {
+        font-size: 13.5px;
+        color: var(--rb-gray-dark);
+        line-height: 1.75;
+        margin: 0;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 32px; }
+        .hero-inner { padding: 40px 24px 50px; }
+        .hero-meta { flex-direction: column; gap: 20px; }
+        .card-top { flex-direction: column; gap: 16px; padding: 28px 24px; }
+        .card-rate { text-align: left; }
+        .card-body { padding: 28px 24px; }
+        .fit-grid { grid-template-columns: 1fr; }
+        .strength-grid { grid-template-columns: 1fr; }
+        .editorial, .why-section { padding: 52px 24px; }
+        .candidates-header, .candidate-card { padding: 0 24px; }
+        .team-grid { grid-template-columns: 1fr; max-width: 100%; }
+        .sagan-info { flex-direction: column; text-align: center; padding: 28px 24px; gap: 20px; }
+        .sagan-divider { display: none; }
+        .sagan-stats { justify-content: center; }
+        .footer-bottom { flex-direction: column; gap: 10px; text-align: center; margin-top: 40px; }
+        .team-inner { padding: 0 24px; }
+        .why-section { padding: 52px 16px; }
+    }
+</style>
 </head>
 <body>
-
-  <div class="site-header">
-    <div class="header-inner">
-      <a class="header-brand" href="https://www.rubicon.com/" target="_blank">
-        <img src="https://www.rubicon.com/wp-content/uploads/2021/07/og-img-home-about.jpg" alt="Rubicon" style="height:28px;" />
-        <div class="header-divider"></div>
-        <span class="header-title">Rubicon</span>
-      </a>
-      <div class="header-sagan">
-        <span>Powered by</span>
-        <img src="https://saganrecruitment.com/wp-content/uploads/2025/10/Sagan-Logo-2-e1759568299542.png" alt="Sagan" style="height:20px;" />
-      </div>
+<!-- ===== HERO ===== -->
+<section class="hero">
+<div class="hero-top-bar"></div>
+<div class="hero-inner">
+<div class="hero-brand">
+    <img alt="Rubicon" class="logo-img" src="https://www.rubicon.com/wp-content/uploads/2021/05/logo-brand.svg"/>
+    <div class="logo-sep"></div>
+    <span class="logo-sub">Talent Selection</span>
+</div>
+<div class="hero-badge">Candidate Presentation</div>
+<h1>Your Next <strong>Client Service Associate.</strong><br/>Carefully Selected.</h1>
+<p class="hero-subtitle">
+    Rubicon needs someone who can own the client experience from the first interaction forward. Responsive, detail-oriented, and built for high-volume support in a fast-moving waste and recycling operation. Six candidates. All vetted for the role.
+</p>
+<div class="hero-meta">
+    <div class="hero-meta-item">
+        <span class="hero-meta-label">Role</span>
+        <span class="hero-meta-value">Client Service Associate</span>
     </div>
-  </div>
-
-  <section class="hero">
-    <div class="hero-eyebrow">Sagan Talent Search</div>
-    <h1>Client Service Associate Candidates</h1>
-    <p class="hero-sub">Curated talent for Rubicon. Each candidate has been vetted and matched to your specific needs.</p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <strong>8</strong> Candidates
-      </div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        <strong>Batch 1</strong> &middot; May 14, 2026
-      </div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        Advisor: <strong>Vicky Martinez</strong>
-      </div>
+    <div class="hero-meta-item">
+        <span class="hero-meta-label">Engagement</span>
+        <span class="hero-meta-value">Full-Time</span>
     </div>
-  </section>
-
-  
-  <div class="intro-note">
-    <div class="intro-card">
-      <p>Hi JossLynn and Damla,</p><p>I am thrilled to share our first batch of fantastic candidates for the Client Service Associate position! We handpicked this group specifically for their strong analytical mindset, confidence in using Excel, and proven ability to calmly resolve complex customer escalations. Please take a look at their profiles and introductory videos, and let me know who you would like to interview so we can get them on your calendars right away.</p>
+    <div class="hero-meta-item">
+        <span class="hero-meta-label">Batch</span>
+        <span class="hero-meta-value">Batch 1 · May 14, 2026</span>
     </div>
-  </div>
-
-  <div class="batch-info">
-    <div class="batch-pill">
-      <span class="batch-num">Batch 1</span>
-      May 14, 2026
+    <div class="hero-meta-item">
+        <span class="hero-meta-label">Compensation Range</span>
+        <span class="hero-meta-value">$1,200 – $1,600 / month</span>
     </div>
-  </div>
+    <div class="hero-meta-item">
+        <span class="hero-meta-label">Candidates Presented</span>
+        <span class="hero-meta-value">6 Vetted Profiles</span>
+    </div>
+</div>
+</div>
+</section>
 
-  <div class="section-label">
-    <h2>Candidate Profiles</h2>
-    <p>Each candidate has been carefully selected and evaluated for this role.</p>
-  </div>
+<!-- ===== EDITORIAL ===== -->
+<section class="editorial fade-in">
+<div class="section-label">Our Selection Rationale</div>
+<h2>Not Just Customer Support. The Face of Rubicon's Client Experience.</h2>
+<p>
+    Rubicon's mission to end waste starts with every client interaction. The Client Service Associate is the person who makes that mission tangible for the businesses Rubicon serves. This role needs someone who can <strong>handle high-volume communication, resolve issues proactively, and represent Rubicon's values</strong> in every touchpoint. Transparency, responsiveness, and a genuine service orientation are non-negotiable.
+</p>
+<p>
+    We filtered for candidates with <strong>proven experience in bilingual customer service environments</strong>, strong CRM proficiency, and a track record of handling complex client interactions without supervision. We prioritized people who've worked in fast-paced, multi-channel support roles (phone, email, chat, ticketing systems) and who understand the rhythm of keeping clients informed while managing competing priorities.
+</p>
+<p>
+    Every candidate in this batch has experience supporting U.S. clients remotely, speaks fluent English and native Spanish, and has demonstrated the capacity to take ownership of client outcomes, not just tickets.
+</p>
+<div class="editorial-divider"></div>
+<p style="font-size: 14px; color: var(--rb-gray);">
+    <strong style="color: var(--rb-dark);">What we screened for:</strong> Bilingual fluency with professional English, CRM and ticketing system experience (Salesforce, Zendesk, or equivalent), history of high-volume support (40+ daily interactions), conflict resolution skills, and the ability to work autonomously in remote settings. We also weighted candidates who showed initiative in process improvement and documentation.
+</p>
+</section>
 
-  <div class="batch-switcher" id="batch-switcher" data-count="1">
-    <button class="batch-btn active" onclick="showBatch(1)" data-batch="1">
-      <span>Batch 1</span>
-      <span class="batch-count">8</span>
-    </button>
-  </div>
+<!-- ===== CANDIDATES ===== -->
+<section class="candidates-section">
+<div class="candidates-header fade-in">
+    <div class="section-label">Batch 1 · May 14, 2026</div>
+    <h2>The Selection</h2>
+    <p>Six candidates. All vetted against what Rubicon's client service operation demands.</p>
+</div>
 
-  <div id="batch-1" class="batch-panel">
-    <div class="candidates">
-      
-    <div class="candidate-card">
-      <div class="card featured" id="candidate-0">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar featured-avatar">JA</div>
-            <div>
-              <div class="card-name">Judy A</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Colombia &middot; 4+ yrs Operations
-              </div>
-              <div class="card-badges">
-                
-                <span class="badge badge-shortlisted">Pre-Shortlisted</span>
-              </div>
+<!-- CANDIDATE 1: Judy A -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">JA</div>
+        <div>
+            <div class="card-name">Judy A <span class="card-name-badge">★ Top Recommendation</span></div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Colombia · Remote · Bilingual English (C2) &amp; Spanish
             </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$1,300/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
         </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Judy is your cheat code for fixing the Philippines bottleneck. She's mastered the exact tool stack Rubicon uses and has a track record of automating chaos into systems. The adult in the room who gets things done.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
+    </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,300</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Judy is the <strong>standout profile in this batch</strong>. While the role is Client Service Associate, she brings a depth of operational experience that most candidates at this level simply don't have. <strong>7+ years supporting executives and founders</strong>, expert-level Notion and automation skills (Zapier, Make), and a proven ability to reduce operational overhead by 15+ hours weekly. She is overqualified in the best possible way: someone who will not only handle client interactions with precision, but <strong>actively improve the systems behind them</strong>.
+    </div>
+    <div class="card-section-title">Experience</div>
+    <div class="experience-list">
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
                 <div class="exp-role">Executive Operations &amp; Automation Specialist</div>
-                <div class="exp-company">Vital Utility &middot; 11/2022 – PRESENT</div>
-                <div class="exp-highlight">● Founder-Level Operational Support: Served as the primary operations partner to leadership, managing complex calendars, acting as a gatekeeper, and ensuring founder time was focused on high-impact strategic initiatives.</div>
-              </div>
+                <div class="exp-company">Vital Utility</div>
+                <div class="exp-date">Nov 2022 – Present</div>
+                <div class="exp-highlight">Founder-level ops support · Notion workspace engineering · Automated workflows reducing friction by 20%</div>
             </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
+        </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
                 <div class="exp-role">Marketplace Operations &amp; Systems Specialist</div>
-                <div class="exp-company">Turo &middot; 03/2022 – 11/2022</div>
-                <div class="exp-highlight">● Automation-First Operations: Mastered a complex ecosystem of SaaS platforms (Zendesk, Asana, Slack). Automated repetitive compliance and administrative workflows using macros, Airtable, and custom scripts, reclaiming 15+ hours per week for the team to focus on strategic projects.</div>
-              </div>
+                <div class="exp-company">Turo</div>
+                <div class="exp-date">Mar 2022 – Nov 2022</div>
+                <div class="exp-highlight">Automated compliance workflows · Reduced new hire ramp time by 30% · Increased client revenue by 15%</div>
             </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
+        </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
                 <div class="exp-role">Operations &amp; Customer Advocacy Lead</div>
-                <div class="exp-company">Clover Health &middot; 06/2021 – 11/2021</div>
-                <div class="exp-highlight">● High-Volume Case Management: Served as the primary point of contact for a portfolio of 150+ complex member cases weekly, acting as a strategic bridge between members, providers, and internal teams.</div>
-              </div>
+                <div class="exp-company">Clover Health</div>
+                <div class="exp-date">Jun 2021 – Nov 2021</div>
+                <div class="exp-highlight">150+ weekly cases · HIPAA compliance · Decreased resolution time by 15%</div>
             </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
+        </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+            <div class="exp-content">
                 <div class="exp-role">Logistics Operations Specialist</div>
-                <div class="exp-company">DoorDash &middot; 01/2021 – 06/2021</div>
-                <div class="exp-highlight">● High-Pressure Operations Coordination: Orchestrated real-time resolution for 80-100+ daily logistics cases, preventing escalation to senior leadership in 95%+ of cases through independent judgment and decisive action.</div>
-              </div>
+                <div class="exp-company">DoorDash</div>
+                <div class="exp-date">Jan 2021 – Jun 2021</div>
+                <div class="exp-highlight">80-100+ daily cases · &lt;0.5% escalation rate · Authored team troubleshooting guide</div>
             </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Zendesk</span><span class="ctag ctag-key">Salesforce</span><span class="ctag ctag-key">Notion</span><span class="ctag ctag-key">Workflow Automation</span><span class="ctag ctag-key">High-Volume Case Management</span>
-            <span class="ctag">Process Optimization</span>
-          </div>
-
-          
-          <div class="card-section-title">Rubicon Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">Zendesk + Salesforce expert → Rubicon's core ticketing and CRM tools, zero learning curve</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Managed 150+ weekly cases at Clover Health → Matches Rubicon's high-volume service requirements exactly</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Automated workflows saving 15+ hours weekly → Solves Rubicon's efficiency gaps from Philippines provider</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Customer Service</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Excel/Data Analysis</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">English Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Ticketing Systems</div>
-              <div class="bar-track"><div class="bar-fill" style="width:98%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Process Optimization</div>
-              <div class="bar-track"><div class="bar-fill" style="width:94%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Time Zone Alignment</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://drive.google.com/file/d/1mGiKPM5qVELO5FXZ0Odz4Qq0D9VJS4C7/view?usp=drive_link" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
-            
-            
-          </div>
         </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Judy stands out as the operations automation specialist in this batch. She's not just another customer service rep. At Turo, she engineered workflows that reclaimed 15+ hours weekly for the team. At Clover Health, she handled 150+ complex cases with zero compliance issues. Her Zendesk mastery solves Rubicon's immediate ticketing needs, while her Salesforce experience means she can hit the ground running on your CRM. The combination of high-volume case management and process optimization makes her the force multiplier pick. Only trade-off: she's coming from healthcare/tech, not waste management, but her systems thinking transcends industry.</p>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-1">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">GA</div>
-            <div>
-              <div class="card-name">Gilma A</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Colombia &middot; 2+ yrs Customer Service
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$1,200/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Gilma brings genuine horsepower from brand-name training programs. Airbnb, United Healthcare, Nordstrom don't mess around with their customer service standards. She's been battle-tested on 60+ daily interactions while maintaining account retention.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Freelance (Digital Marketing)</div>
-                <div class="exp-company"> &middot; December 2024 - February2026</div>
-                <div class="exp-highlight">Led the digital transformation of a small local business.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Bilingual Account Associate</div>
-                <div class="exp-company">Airbnb - Sutherland &middot; December 2023 - November 2024</div>
-                <div class="exp-highlight">Increased client satisfaction by effectively managing and resolving account issues through strong communication and problem-solving skills.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Bilingual Customer Service Representative</div>
-                <div class="exp-company">United Healthcare - Foundever &middot; July 2023 - December 2023</div>
-                <div class="exp-highlight">Maintained detailed records of customer interactions and transactions, ensuring proper follow-up and resolution of issues with a focus on building relationships.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Bilingual Customer Service Representative</div>
-                <div class="exp-company">Nordstrom - Teleperformance &middot; October 2022 - July 2023</div>
-                <div class="exp-highlight">Resolved customer complaints with empathy, resulting in increased loyalty and repeat business through effective relationship building.</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Advanced Excel</span><span class="ctag ctag-key">CRM Software</span><span class="ctag ctag-key">Account Management</span><span class="ctag ctag-key">Bilingual Communication</span><span class="ctag ctag-key">Ticket Resolution</span>
-            <span class="ctag">Data Entry</span>
-          </div>
-
-          
-          <div class="card-section-title">Rubicon Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">50+ daily interactions at Airbnb → Matches Rubicon's high-volume ticket processing needs exactly</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Advanced Excel + CRM experience → Ready for operational reporting and data analysis from day one</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Multi-account management background → Perfect fit for handling enterprise client portfolios without dropoffs</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Customer Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Excel Proficiency</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Account Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Ticket Resolution</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Data Analysis</div>
-              <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Process Compliance</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/9a3fc2dd-bfdf-43a3-b9e6-15218a7d5528" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
-            
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Gilma stands out in this batch because she's been trained by the best. Airbnb through Sutherland means she knows how to handle complex account issues without scripts. United Healthcare gave her the compliance mindset Rubicon needs for their enterprise clients. The Nordstrom experience shows she can maintain professionalism under pressure. Her Advanced Excel skills put her ahead of typical customer service reps. At $1200/month, she's the calculated risk worth taking. The trade-off: she's earlier in her career than some others, but her brand training makes up for raw years.</p>
-          </div>
-        </div>
-      </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">Bilingual English C2 / Spanish</span>
+        <span class="tag key">Operations &amp; Automation</span>
+        <span class="tag key">Notion Expert</span>
+        <span class="tag key">High-Volume Support</span>
+        <span class="tag">Zapier / Make</span>
+        <span class="tag">Salesforce</span>
+        <span class="tag">HubSpot</span>
+        <span class="tag">Zendesk</span>
+        <span class="tag">Process Optimization</span>
     </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-2">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">JG</div>
-            <div>
-              <div class="card-name">Juan G</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Colombia &middot; 4+ yrs Customer Support
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$1,500/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Cali, Colombia</div>
         </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">C2 / Native Proficiency</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,300 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">Client Communication</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 96%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">CRM &amp; Systems Proficiency</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 95%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Process Automation</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 97%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">High-Volume Capacity</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 94%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://drive.google.com/file/d/1mGiKPM5qVELO5FXZ0Odz4Qq0D9VJS4C7/view?usp=drive_link" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <a class="card-resume" href="https://prod-fillout-oregon-s3.s3.us-west-2.amazonaws.com/orgid-351357/flowpublicid-f24q1vkFfmus/9268c387-dc98-4841-92ad-a7a67a3cada5-jfvjoLMZO5dEnM2aN4WcnhznCDNUJxIVqpC1JrcRl26kvo4Vx7kKKFArgCNLJImGa4gws5TH4fiDu24IqAA4s3VeAzPihBqRZbS/JudyAvila-Resume.pdf" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        View Resume
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Judy is significantly overqualified for a CSA role, which works in Rubicon's favor. She brings automation thinking and systems design on top of strong client-facing skills. If Rubicon needs someone who can grow into an operations or process improvement function, Judy is the candidate who can do both from day one. Her experience at Clover Health with HIPAA-level compliance and at DoorDash with real-time logistics mirrors the pace and accountability Rubicon's waste management operation requires.</p>
+    </div>
+</div>
+</div>
+</div>
 
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Juan is the Swiss Army knife who ships not just plans. He's handled everything from Netflix tech issues to healthcare billing inquiries. More than meets the eye with that mentoring background at Teleperformance.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
+<!-- CANDIDATE 2: Juan G -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">JG</div>
+        <div>
+            <div class="card-name">Juan G</div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Colombia · Remote · Fluent English &amp; Native Spanish
+            </div>
+        </div>
+    </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,500</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Juan brings <strong>5+ years of dedicated customer service for U.S. clients</strong> across high-volume, phone-driven environments. He's not a generalist who dabbled in support. This is what he does, and he does it well. His track record includes <strong>80%+ customer satisfaction, mentoring frontline agents</strong>, and handling escalations that would normally land on a manager's desk. ACTFL-certified English proficiency and a BYU education round out a profile built for this exact seat.
+    </div>
+    <div class="card-section-title">Experience</div>
+    <div class="experience-list">
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
                 <div class="exp-role">Tier II Support Agent</div>
-                <div class="exp-company">Bloom/Gabb Wireless, Remote &middot; May 2024 – March 2026 (Contract Completed)</div>
-                <div class="exp-highlight">Handled high-volume inbound and outbound customer interactions, resolving complex service, billing, and technical issues</div>
-              </div>
+                <div class="exp-company">Bloom / Gabb Wireless</div>
+                <div class="exp-date">May 2024 – Mar 2026</div>
+                <div class="exp-highlight">80%+ CSAT · Escalation handling · Mentored frontline agents on communication</div>
             </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Bilingual Customer Support Agent United Healthcare</div>
-                <div class="exp-company">FoundEver , Colombia (Remote) &middot; Sept 2022 – May 2024</div>
-                <div class="exp-highlight">Provided phone-based support to U.S. customers regarding billing, coverage, and account inquiries</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
+        </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
                 <div class="exp-role">Bilingual Customer Support Agent</div>
-                <div class="exp-company">Teleperformance , Colombia (Remote) &middot; Sept 2020 – Sept 2022</div>
-                <div class="exp-highlight">Managed 30–40+ inbound calls daily while maintaining 85%+ CSAT</div>
-              </div>
+                <div class="exp-company">United Healthcare / FoundEver</div>
+                <div class="exp-date">Sep 2022 – May 2024</div>
+                <div class="exp-highlight">30-40+ inbound calls daily · 85%+ CSAT · QA and coaching for 15+ agents</div>
             </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Full-Time Missionary</div>
-                <div class="exp-company">The Church of Jesus Christ of Latter-day Saints &middot; May 2012 - May 2014</div>
-                <div class="exp-highlight">Communicated daily with diverse individuals in English and Spanish, strengthening cross-cultural communication skills</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Inbound/Outbound Calls</span><span class="ctag ctag-key">CRM Systems</span><span class="ctag ctag-key">Escalation Handling</span><span class="ctag ctag-key">Team Mentoring</span><span class="ctag ctag-key">Billing Support</span>
-            <span class="ctag">Case Documentation</span>
-          </div>
-
-          
-          <div class="card-section-title">Rubicon Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">Handled 30-40+ daily calls at 85% CSAT → Rubicon needs every ticket responded to within 24 hours</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">CRM documentation expert (Intercom, Dialpad, Maestro) → Perfect fit for Rubicon's ticketing system requirements</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Mentored 15+ agents on QA processes → Can help train and onboard the other 4 CSAs in your pilot team</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Call Handling</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">CRM Systems</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Documentation</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Escalation Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Team Training</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">English Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://drive.google.com/file/d/1D4ZYthdlOcWJWlYvy6h9OtUYgUURH2_T/view?usp=drive_link" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
-            
-            
-          </div>
         </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Juan stands out in this batch because he's actually lived the exact workflow Rubicon needs. While others have customer service experience, Juan has been the escalation point handling complex billing and technical issues for major US brands. His 4+ years across multiple BPO companies shows he can adapt quickly to new systems and processes. The mentoring experience at Teleperformance tells me he thinks beyond his own tickets. He sees the bigger picture. At $1500/month, he's priced at the higher end of your range, but you're getting someone who can train the other 4 CSAs as you scale the team.</p>
-          </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+            <div class="exp-content">
+                <div class="exp-role">Bilingual Customer Support Agent</div>
+                <div class="exp-company">Teleperformance</div>
+                <div class="exp-date">Sep 2020 – Sep 2022</div>
+                <div class="exp-highlight">High-volume inbound operations · International client portfolio</div>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-3">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">LV</div>
-            <div>
-              <div class="card-name">Luis V</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Colombia &middot; 2+ yrs Customer Support
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$1,200/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">Fluent English (ACTFL Certified)</span>
+        <span class="tag key">Tier II Escalation Handling</span>
+        <span class="tag key">5+ Years U.S. Client Support</span>
+        <span class="tag">Intercom</span>
+        <span class="tag">Dialpad</span>
+        <span class="tag">CSAT Management</span>
+        <span class="tag">Agent Mentorship</span>
+        <span class="tag">Complaint Resolution</span>
+    </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Cali, Colombia</div>
         </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">Fluent (ACTFL Certified)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,500 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">Client Communication</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 93%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Escalation Management</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">High-Volume Capacity</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Team Mentorship</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://drive.google.com/file/d/1D4ZYthdlOcWJWlYvy6h9OtUYgUURH2_T/view?usp=drive_link" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <a class="card-resume" href="https://prod-fillout-oregon-s3.s3.us-west-2.amazonaws.com/orgid-351357/flowpublicid-cgcDDCcLshus/09dd2da2-3c9a-485f-9fc4-389c25c53edc-44p8mwGUZrQiwpmGZBC1ZQHECIxxwrpFUAin2qPBUxjBL9bZaIvg5W4SKnSQ3OrDBlRk0O4Nrdb44X0oSOXeXQHeWsqMyGnMTFx/Juan_Guevara_Customer_Service_Representative.pdf.pdf" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        View Resume
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Juan is the purest client service profile in this batch. Five continuous years supporting U.S. clients in phone-first environments, with a clear progression from frontline to Tier II. He's mentored agents and maintained consistently high satisfaction scores. For Rubicon, that means someone who can handle the complexity of multi-location waste service inquiries, de-escalate frustrated clients, and do it at volume without dropping quality. His ACTFL certification and BYU education signal commitment to professional development.</p>
+    </div>
+</div>
+</div>
+</div>
 
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Luis is the force multiplier who runs through walls to close tickets. Zendesk background means he knows ticketing systems inside out. The combination of GrubHub's fast pace and international trade precision gives him both speed and accuracy.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Bilingual Customer Care Agent</div>
-                <div class="exp-company">GRUBHUB (Foundever de Colombia S.A.) &middot; August 2025 – Present</div>
-                <div class="exp-highlight">• Deliver comprehensive, bilingual (English/Spanish) customer support to U.S. clients via email, ticketing systems, and live chat.</div>
-              </div>
+<!-- CANDIDATE 3: Genesis M -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">GM</div>
+        <div>
+            <div class="card-name">Genesis M</div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Honduras · Remote · Bilingual English &amp; Spanish
             </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Foreign Trade Assistant</div>
-                <div class="exp-company">Agecoldex S.A. (In-house at Reckitt Benckiser Colombia S.A.) &middot; September 2024 – March 2025</div>
-                <div class="exp-highlight">• Coordinated international shipments and managed export documentation in strict compliance with trade regulations.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Bilingual Customer Service Representative</div>
-                <div class="exp-company">STAND UP WIRELESS (Foundever de Colombia S.A.) &middot; July 2023 – September 2024</div>
-                <div class="exp-highlight">• Provided comprehensive bilingual support via phone, email, and chat for customers in the U.S. and Puerto Rico.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
+        </div>
+    </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,600</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Genesis brings <strong>6+ years of remote customer support and virtual assistant experience</strong> across some of the most demanding client environments in tech. She's worked Amazon's candidate pipeline, handled PayNearMe's payment support, and managed high-volume technical + billing queries for telecom clients. What sets her apart is <strong>her depth with CRM platforms (Salesforce, Zendesk, Einstein)</strong> and her ability to work across multiple communication channels simultaneously. She's built for operational pace.
+    </div>
+    <div class="card-section-title">Experience</div>
+    <div class="experience-list">
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
                 <div class="exp-role">Customer Service Representative</div>
-                <div class="exp-company">Servimos S.A.S. (Client: Red Latinoamericana de Ingeniería S.A.S.) &middot; February 2023 – May 2023</div>
-                <div class="exp-highlight">• Responded to technical inquiries from U.S. and Canadian customers via email using Zendesk.</div>
-              </div>
+                <div class="exp-company">PayNearMe / PartnerHero</div>
+                <div class="exp-date">Aug 2023 – Present</div>
+                <div class="exp-highlight">Remote multi-channel support · Billing &amp; payment resolution · Data-driven service improvement</div>
             </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Zendesk</span><span class="ctag ctag-key">SAP</span><span class="ctag ctag-key">Excel</span><span class="ctag ctag-key">Power BI</span><span class="ctag ctag-key">Bilingual Support</span>
-            <span class="ctag">Ticket Management</span>
-          </div>
-
-          
-          <div class="card-section-title">Rubicon Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">Zendesk experience from telecom support → Direct match for Rubicon's ticketing system requirements</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">GrubHub dispute resolution + billing adjustments → Handles money-sensitive customer issues like waste service billing</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">SAP + SharePoint data management → Can handle operational reporting and documentation Rubicon needs</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">English Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Ticketing Systems</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Excel/Data Analysis</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Customer Service</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Problem Resolution</div>
-              <div class="bar-track"><div class="bar-fill" style="width:87%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Time Zone Alignment</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/f7048023-3d2e-41af-aeba-4ad8c9bd83a7" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
-            
-            
-          </div>
         </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Luis brings the perfect combination of ticketing system mastery and bilingual customer service polish that Rubicon desperately needs. His Zendesk experience at the telecom company directly maps to your support workflow requirements. The GrubHub role shows he can handle high-pressure customer disputes with money on the line, exactly what you need for waste service billing issues. His SAP background from the Reckitt Benckiser trade role proves he can handle enterprise systems and documentation. At $1200/month, he's the calculated risk worth taking. Trade-off: he's moving between roles frequently, but each move has been upward with bigger companies.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-4">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">JH</div>
-            <div>
-              <div class="card-name">Juan H</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Colombia &middot; 4+ yrs Customer Support
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$1,400/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Sebastian is the tank who can handle Rubicon's ticket volume without breaking. Teleperformance doesn't mess around with training. He's processing 120+ cases daily right now, which is exactly the throughput Rubicon needs from their CSA team.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Financial Broker Support Agent</div>
-                <div class="exp-company">TAG MARKETS &middot; Oct 2025 – Present</div>
-                <div class="exp-highlight">• Manage 120–130 daily ticket-based financial support cases involving deposits, withdrawals, and trading platform issues</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Legal Intake &amp; Case Evaluation Specialist</div>
-                <div class="exp-company">ABRAMSON LABOR GROUP &middot; Jan 2024 – Sep 2025</div>
-                <div class="exp-highlight">• Conduct 10–15 structured legal intake evaluations daily (50+ weekly case assessments)</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Senior Customer Support Specialist</div>
-                <div class="exp-company">TELEPERFORMANCE – META (WHATSAPP CAMPAIGN) &middot; Jun 2021 – Nov 2025</div>
-                <div class="exp-highlight">• Handle approximately 500 daily support tickets within high-volume queue systems</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Commercial Advisor</div>
-                <div class="exp-company">BANCO DE BOGOTÁ &middot; Apr 2020 – May 2021</div>
-                <div class="exp-highlight">• Review financial applications and contracts for regulatory compliance</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Google Workspace</span><span class="ctag ctag-key">CRM Systems</span><span class="ctag ctag-key">Ticketing Platforms</span><span class="ctag ctag-key">SLA Management</span><span class="ctag ctag-key">Data Verification</span>
-            <span class="ctag">Compliance Documentation</span>
-          </div>
-
-          
-          <div class="card-section-title">Rubicon Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">120-130 daily tickets at TAG Markets → Matches Rubicon's high-volume customer service demands exactly</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">95%+ CRM documentation accuracy → Critical for Rubicon's zero unacknowledged tickets SLA requirement</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Banco de Bogotá compliance background → Understands proper escalation procedures for waste management regulations</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Ticket Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Excel/Data Entry</div>
-              <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">English Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Documentation Accuracy</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">High Volume Processing</div>
-              <div class="bar-track"><div class="bar-fill" style="width:98%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Compliance Procedures</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://drive.google.com/file/d/1835QD8-Xl9Zc_e1m0ofuQ_6FOT63V_Gw/view" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
-            
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Sebastian brings the rare combination of extreme volume handling and compliance precision that Rubicon's waste management operation demands. His current role processing 120-130 daily financial cases mirrors exactly what Rubicon needs for their ticket-heavy customer service model. The Teleperformance background is gold here - they're known for rigorous training and SLA adherence. His 95%+ documentation accuracy from the legal intake role shows he can maintain quality at speed. Banking compliance experience means he gets the importance of proper escalation procedures. At $1400/month, he's mid-range in this Colombia batch but brings more volume experience than most. The calculated risk worth taking if you need someone who won't buckle under Rubicon's demanding ticket flow.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-5">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">RB</div>
-            <div>
-              <div class="card-name">Ricardo B</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Nicaragua &middot; Customer Operations
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$1,500/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Ricardo is the calculated risk worth taking for geographic diversification. While others cluster in Colombia, he brings Central American stability with US timezone alignment. Polished communicator who understands the data side of customer service operations.
-          </div>
-
-          
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Excel</span><span class="ctag ctag-key">Data Analysis</span><span class="ctag ctag-key">Bilingual Customer Service</span><span class="ctag ctag-key">Operations Management</span>
-            
-          </div>
-
-          
-          <div class="card-section-title">Rubicon Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">Nicaragua CST timezone → Eliminates current Philippines scheduling conflicts completely</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Excel + data analysis background → Handles Rubicon's operational reporting requirements from day one</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Bilingual customer operations experience → Fixes the language barrier issues plaguing their current offshore setup</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">English Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Excel Proficiency</div>
-              <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Customer Service</div>
-              <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Data Analysis</div>
-              <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Timezone Alignment</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Operations Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://drive.google.com/file/d/1_vjZBlWYsYugE6mfbMorchK9xhseYS_t/view?usp=drive_link" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
-            
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Ricardo stands out in this batch for two key reasons: geography and cost efficiency. His Nicaragua location gives Rubicon perfect timezone alignment without the Philippines headaches they're trying to escape. His bilingual operations background shows he can handle the customer-facing complexity Rubicon needs, while his Excel skills address their data analysis requirements. The $1500 rate puts him in the middle of this batch, but his timezone advantage could easily justify the premium. Nicaragua's growing BPO market means better talent retention than some alternatives. The trade-off is less established infrastructure than Colombia options, but for a pilot team, his timezone alignment might be exactly what Rubicon needs to regain control of their operations.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-6">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">GR</div>
-            <div>
-              <div class="card-name">Gabriel R</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Argentina &middot; 
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$2,000/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Gabriel is more than meets the eye for geographic strategy. While pricier than the Colombia cluster, Argentina brings timezone flexibility and typically stronger English foundations. The calculated play if you want to test multiple Latin American markets.
-          </div>
-
-          
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Unknown from available data</span>
-            
-          </div>
-
-          
-          <div class="card-section-title">Rubicon Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">Argentina timezone flexibility → Better overlap with Rubicon's EST business hours than other LATAM options</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Geographic diversification → Reduces single-country risk as Rubicon builds their Latin American hub</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Regional infrastructure advantages → Argentina's remote work ecosystem more developed than Central American alternatives</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Customer Service</div>
-              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Excel Proficiency</div>
-              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">English Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Data Analysis</div>
-              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Ticket Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Problem Solving</div>
-              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/ea11b1cc-bc91-4a91-972d-492fc1da3650" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
-            
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Gabriel represents the geographic diversification play in this batch. While six candidates cluster in Colombia, he offers Argentina's advantages: better timezone alignment with EST, stronger English education standards, and more developed remote work infrastructure. The $2000 rate is 40% higher than the Colombia average, but reflects Argentina's economic reality and typically delivers corresponding quality. This is about testing multiple markets for your Latin American hub expansion. If the Colombia hires work out perfectly, Gabriel becomes your backup. If you want geographic risk mitigation from day one, he's your hedge bet. Trade-off is clear: higher cost for strategic positioning.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-7">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">GM</div>
-            <div>
-              <div class="card-name">Genesis M</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Honduras &middot; 5+ yrs Customer Service
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$1,600/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Genesis is the wallet-friendly veteran who makes complex things simple. Five years across enterprise brands means she's seen every customer service scenario. Honduras gives you Central American stability without the Colombia clustering risk.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Customer Service Representative</div>
-                <div class="exp-company">PayNearMe – PartnerHero &middot; Aug 2023 – Present</div>
-                <div class="exp-highlight">Delivered remote support via phone, email, chat, and ticketing systems.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
                 <div class="exp-role">Technical Support &amp; Telesales Representative</div>
-                <div class="exp-company">Xfinity Mobile – Startek &middot; Jun 2021 – Jul 2023</div>
-                <div class="exp-highlight">Troubleshot technical, billing, and service-related issues across mobile devices and accounts.</div>
-              </div>
+                <div class="exp-company">Infinity Mobile / Startek</div>
+                <div class="exp-date">Jun 2021 – Jul 2023</div>
+                <div class="exp-highlight">10+ daily sales · Technical &amp; billing issue resolution · CRM ticketing systems</div>
             </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Candidate Support Specialist</div>
-                <div class="exp-company">Amazon ACCS – Startek &middot; Sep 2019 – May 2021</div>
-                <div class="exp-highlight">Scheduled interviews and supported candidates throughout hiring stages.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Customer Service Representative</div>
-                <div class="exp-company">Amazon Retail – Startek &middot; Sep 2019 – Nov 2020</div>
-                <div class="exp-highlight">Handled 40+ daily inquiries related to orders, refunds, and payments.</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Zendesk</span><span class="ctag ctag-key">Salesforce</span><span class="ctag ctag-key">CRM Management</span><span class="ctag ctag-key">Billing Support</span><span class="ctag ctag-key">Technical Troubleshooting</span>
-            <span class="ctag">Remote Communication</span>
-          </div>
-
-          
-          <div class="card-section-title">Rubicon Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">Zendesk + Salesforce experience → Rubicon's preferred ticketing systems, zero training needed</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">PayNearMe billing/payment support → Directly applicable to waste service billing inquiries</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">40+ daily Amazon inquiries → Matches Rubicon's high-volume customer interaction requirements</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Customer Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Ticketing Systems</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Data Entry/Excel</div>
-              <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Billing/Payment Issues</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">English Proficiency</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Remote Operations</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/6fa2938e-bd64-4706-9b86-ffb3cf1dd9df" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
-            
-            
-          </div>
         </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Genesis stands out as the most seasoned customer service operator in this batch. Her PayNearMe-PartnerHero experience handling billing and payment issues directly mirrors what Rubicon's CSAs face daily. The Xfinity Mobile background is gold. she's managed technical troubleshooting while hitting 10+ sales per day, which shows she can handle both problem-solving and relationship building. At $1600, she's priced between the Colombia cluster and the premium options, but brings enterprise-grade experience from recognizable brands. Honduras offers geographic diversification without the Argentina premium. The combination of Zendesk fluency and proven high-volume processing makes her a strong operational fit.</p>
-          </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+            <div class="exp-content">
+                <div class="exp-role">Candidate Support Specialist / CSR</div>
+                <div class="exp-company">Amazon ACCS / Startek</div>
+                <div class="exp-date">Sep 2019 – May 2021</div>
+                <div class="exp-highlight">40+ daily inquiries · Interview scheduling · Candidate lifecycle management</div>
+            </div>
         </div>
-      </div>
     </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">Bilingual English / Spanish</span>
+        <span class="tag key">6+ Years Remote Support</span>
+        <span class="tag key">Salesforce &amp; Zendesk</span>
+        <span class="tag">CRM Management</span>
+        <span class="tag">Billing Support</span>
+        <span class="tag">Ticket Management</span>
+        <span class="tag">Google Workspace</span>
+        <span class="tag">Canva</span>
     </div>
-    
-  <div class="comparison-section">
-    <div class="section-label" style="padding-bottom:20px;">
-      <h2>Side-by-Side Comparison</h2>
-      <p>Key criteria at a glance to help you prioritize interviews.</p>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Honduras</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">Bilingual Proficient</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,600 / month</div>
+        </div>
     </div>
-    <div class="comparison-table-wrap">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Criteria</th>
-            <th>Judy A</th><th>Gilma A</th><th>Juan G</th><th>Luis V</th><th>Juan H</th><th>Ricardo B</th><th>Gabriel R</th><th>Genesis M</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Location</strong></td><td>Colombia</td><td>Colombia</td><td>Colombia</td><td>Colombia</td><td>Colombia</td><td>Nicaragua</td><td>Argentina</td><td>Honduras</td></tr>
-          <tr><td><strong>Experience</strong></td><td>4+ yrs Operations</td><td>2+ yrs Customer Service</td><td>4+ yrs Customer Support</td><td>2+ yrs Customer Support</td><td>4+ yrs Customer Support</td><td>Customer Operations</td><td>See profile</td><td>5+ yrs Customer Service</td></tr>
-          <tr><td><strong>Key Employers</strong></td><td>Vital Utility, Turo, Clover Health</td><td>Airbnb - Sutherland, United Healthcare - Foundever, Nordstrom - Teleperformance</td><td>Bloom/Gabb Wireless, Remote, FoundEver , Colombia (Remote), Teleperformance , Colombia (Remote)</td><td>GRUBHUB (Foundever de Colombia S.A.), Agecoldex S.A. (In-house at Reckitt Benckiser Colombia S.A.), STAND UP WIRELESS (Foundever de Colombia S.A.)</td><td>TAG MARKETS, ABRAMSON LABOR GROUP, TELEPERFORMANCE – META (WHATSAPP CAMPAIGN)</td><td>See profile</td><td>See profile</td><td>PayNearMe – PartnerHero, Xfinity Mobile – Startek, Amazon ACCS – Startek</td></tr>
-          <tr><td><strong>Core Strength</strong></td><td>Zendesk, Salesforce, Notion</td><td>Advanced Excel, CRM Software, Account Management</td><td>Inbound/Outbound Calls, CRM Systems, Escalation Handling</td><td>Zendesk, SAP, Excel</td><td>Google Workspace, CRM Systems, Ticketing Platforms</td><td>Excel, Data Analysis, Bilingual Customer Service</td><td>Unknown from available data</td><td>Zendesk, Salesforce, CRM Management</td></tr>
-          <tr><td><strong>HRIS / Tools</strong></td><td>Zendesk, Salesforce, Notion, Workflow Automation, High-Volume Case Management</td><td>Advanced Excel, CRM Software, Account Management, Bilingual Communication, Ticket Resolution</td><td>Inbound/Outbound Calls, CRM Systems, Escalation Handling, Team Mentoring, Billing Support</td><td>Zendesk, SAP, Excel, Power BI, Bilingual Support</td><td>Google Workspace, CRM Systems, Ticketing Platforms, SLA Management, Data Verification</td><td>Excel, Data Analysis, Bilingual Customer Service, Operations Management</td><td>Unknown from available data</td><td>Zendesk, Salesforce, CRM Management, Billing Support, Technical Troubleshooting</td></tr>
-          <tr><td><strong>Languages</strong></td><td>English, Spanish</td><td>English, Spanish</td><td>Spanish, English</td><td>English, Spanish</td><td>Spanish, English, Portuguese</td><td>English</td><td>English</td><td>English, Spanish</td></tr>
-          <tr><td><strong>Education</strong></td><td>Marketing (Universidad Santiago de Cali); Diploma in Pedagogy for Non-Degree Holders (Politécnico de Colombia)</td><td>Some College (No Degree) Language Arts Education - Foreign languages with emphasis in English (Universidad Del Tolima); Technician degreeAdministrative assistance (SENA)</td><td>Bachelor of Applied Science: Family and Human Services (in progress) (Brigham Young University - Rexburg, Idaho, USA); Associate of Applied Science in Family and Human Services (Brigham Young University - Rexburg, Idaho, USA)</td><td>B.A. in Foreign Trade (Universidad del Valle, Cali- Col); Technologist in Market Management (SENA, Cali, Col.)</td><td>BYU Pathway Worldwide (Remote); Technologist in Administrative Processes in Financial Entities (SENA)</td><td>See profile</td><td>See profile</td><td>See profile</td></tr>
-          <tr><td><strong>Rate</strong></td><td>$1,300/mo</td><td class="highlight-cell">$1,200/mo</td><td>$1,500/mo</td><td class="highlight-cell">$1,200/mo</td><td>$1,400/mo</td><td>$1,500/mo</td><td>$2,000/mo</td><td>$1,600/mo</td></tr>
-          
-        </tbody>
-      </table>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">Multi-Channel Support</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 91%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">CRM Proficiency</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 93%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Billing &amp; Payment Resolution</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 89%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">High-Volume Capacity</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+        </div>
     </div>
-  </div>
-  </div>
+    <a class="card-video" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/6fa2938e-bd64-4706-9b86-ffb3cf1dd9df" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <a class="card-resume" href="https://prod-fillout-oregon-s3.s3.us-west-2.amazonaws.com/orgid-351357/flowpublicid-2JJWWtdYtnus/34eba3fb-840c-40f1-abc2-1e08ed23e374-FpFMx1lImPZiAHtTe9oFXddfU1j1TB4PR0CXgKiuogVtsBVkttovXqjuKAHLwjSoltBmo0qgCsCKYsknyBpH15NFE7G40Ip4JeJ/CV-GM-2026.pdf" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        View Resume
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Genesis is a workhorse. Six years of continuous remote support across Amazon, Startek, and PartnerHero. Her combination of Salesforce and Zendesk experience is directly transferable to Rubicon's tech-enabled service model. She's handled billing disputes, technical troubleshooting, and high-volume queues simultaneously. If Rubicon needs a reliable, systems-savvy associate who can manage client accounts with minimal ramp-up time, Genesis delivers that.</p>
+    </div>
+</div>
+</div>
+</div>
 
-  <div class="advisor-section">
-    <div class="section-label" style="padding-bottom:20px;">
-      <h2>Your Talent Advisor</h2>
+<!-- CANDIDATE 4: Ricardo B -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">RB</div>
+        <div>
+            <div class="card-name">Ricardo B</div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Nicaragua · Remote · Bilingual English &amp; Spanish
+            </div>
+        </div>
     </div>
-    <div class="advisor-card">
-      <img class="advisor-avatar" src="https://saganrecruitment.com/wp-content/uploads/2025/10/Vicky-Martinez.jpeg" alt="Vicky Martinez" />
-      <div class="advisor-info">
-        <div class="advisor-label">Sagan Talent Advisor</div>
-        <div class="advisor-name">Vicky Martinez</div>
-        <div class="advisor-role">Sagan · Recruitment Team — Talent Advisor</div>
-        <p class="advisor-summary">Vicky has over four years of experience building talent pipelines and conducting screenings. She is your direct point of contact for scheduling interviews and coordinating next steps.</p>
-      </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,500</div>
+        <div class="card-rate-period">USD / Month</div>
     </div>
-  </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Ricardo comes from <strong>Nicaragua, bringing bilingual client service experience</strong> to the table. His background positions him as a candidate who understands the cadence of U.S. client support from a LATAM remote setting. At $1,500/month, he's competitively positioned and <strong>brings the kind of professional demeanor</strong> that Rubicon's enterprise clients expect from their primary service contacts.
+    </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">Bilingual English / Spanish</span>
+        <span class="tag key">Client Service</span>
+        <span class="tag key">Remote Operations</span>
+        <span class="tag">Customer Support</span>
+        <span class="tag">Communication</span>
+        <span class="tag">Problem Solving</span>
+    </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Nicaragua</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">Bilingual</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,500 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">Client Communication</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 85%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Bilingual Proficiency</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 86%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Remote Work Adaptability</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 84%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Problem Resolution</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 83%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://drive.google.com/file/d/1_vjZBlWYsYugE6mfbMorchK9xhseYS_t/view?usp=drive_link" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <a class="card-resume" href="https://drive.google.com/file/d/135MXLrG6RxjvxMLcdj3xjfE_MBP0xmeD/view?usp=drive_link" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        View Resume
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Ricardo is a solid contender from Nicaragua with bilingual capability and a service-oriented mindset. His video introduction and resume provide additional context on his background. We recommend reviewing his intro video to assess communication style and energy level, both of which are critical for a client-facing role at Rubicon where first impressions define the service relationship.</p>
+    </div>
+</div>
+</div>
+</div>
 
-  <footer class="site-footer">
-    <div class="footer-logos">
-      <img src="https://www.rubicon.com/wp-content/uploads/2021/07/og-img-home-about.jpg" alt="Rubicon" style="height:24px;" onerror="this.style.display='none'" />
-      <span class="footer-x">&times;</span>
-      <img src="https://saganrecruitment.com/wp-content/uploads/2025/10/Sagan-Logo-2-e1759568299542.png" alt="Sagan" />
+<!-- CANDIDATE 5: Gilma A -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">GA</div>
+        <div>
+            <div class="card-name">Gilma A</div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Colombia · Remote · English B2+ &amp; Native Spanish
+            </div>
+        </div>
     </div>
-    <p>Prepared by <a href="https://getsagan.com" target="_blank">Sagan</a> for Rubicon &middot; Client Service Associate Search &middot; May 14, 2026</p>
-  </footer>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,200</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Gilma brings <strong>2 years of bilingual customer service across healthcare, retail, and travel sectors</strong>. She's handled accounts for Airbnb through Sutherland, supported United Healthcare members, and managed high-volume retail inquiries for Nordstrom via Teleperformance. At <strong>50-60+ daily interactions</strong>, she knows what it means to maintain quality at speed. Her recent pivot into digital marketing and freelance work shows initiative and adaptability. At $1,200/month, she's the most cost-effective profile in this batch.
+    </div>
+    <div class="card-section-title">Experience</div>
+    <div class="experience-list">
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
+                <div class="exp-role">Bilingual Account Associate</div>
+                <div class="exp-company">Airbnb / Sutherland</div>
+                <div class="exp-date">Dec 2023 – Nov 2024</div>
+                <div class="exp-highlight">50+ daily interactions · Multi-channel (email, chat, phone) · Client relationship management</div>
+            </div>
+        </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
+                <div class="exp-role">Bilingual Customer Service Representative</div>
+                <div class="exp-company">United Healthcare / Foundever</div>
+                <div class="exp-date">Jul 2023 – Dec 2023</div>
+                <div class="exp-highlight">Escalated call handling · Problem-solving focus · Customer interaction records</div>
+            </div>
+        </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+            <div class="exp-content">
+                <div class="exp-role">Bilingual Customer Service Representative</div>
+                <div class="exp-company">Nordstrom / Teleperformance</div>
+                <div class="exp-date">Oct 2022 – Jul 2023</div>
+                <div class="exp-highlight">60+ daily interactions · Phone &amp; ticket management · High-stress environment</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">Bilingual English B2+ / Spanish</span>
+        <span class="tag key">Multi-Sector Experience</span>
+        <span class="tag key">High-Volume Support</span>
+        <span class="tag">CRM Software</span>
+        <span class="tag">Advanced Excel</span>
+        <span class="tag">Data Entry</span>
+        <span class="tag">Digital Marketing</span>
+        <span class="tag">Canva</span>
+    </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Bogota, Colombia</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">Advanced (B2+)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,200 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">Client Communication</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 84%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Multi-Channel Support</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 87%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">High-Volume Capacity</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Adaptability</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 85%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/9a3fc2dd-bfdf-43a3-b9e6-15218a7d5528" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <a class="card-resume" href="https://prod-fillout-oregon-s3.s3.us-west-2.amazonaws.com/orgid-351357/flowpublicid-tfsiX2DCJQus/2259fb89-7464-4d10-bacc-0d1b4ea32793-8EgYNsjiMrjiA8XYS4RIBdvavaKvgY9oyZ3V6R2A3Dnb5Xj0yEUQqQQLrhRzuD8zlDS7Hq25mt1XM8oX1vQExiIDxG9nSfij24V/GILMAAC---RESUME.pdf_20260227_090338_0000.pdf" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        View Resume
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Gilma is a strong budget-friendly option. Her experience across Airbnb, United Healthcare, and Nordstrom gives her cross-industry client service exposure that translates directly to Rubicon's diverse client base. She's handled healthcare compliance-level interactions and high-end retail expectations. Her English is B2+, which is functional for day-to-day client communication but may require assessment for complex, nuanced conversations. Her recent certifications in digital marketing and advanced Excel show she's actively investing in growth.</p>
+    </div>
+</div>
+</div>
+</div>
 
-  <script>
-    function showBatch(n) {
-      document.querySelectorAll('.batch-panel').forEach(p => p.classList.add('hidden'));
-      document.querySelectorAll('.batch-btn').forEach(b => b.classList.remove('active'));
-      var panel = document.getElementById('batch-' + n);
-      var btn = document.querySelector('[data-batch="' + n + '"]');
-      if (panel) panel.classList.remove('hidden');
-      if (btn) btn.classList.add('active');
-    }
-  </script>
+<!-- CANDIDATE 6: Luis V -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">LV</div>
+        <div>
+            <div class="card-name">Luis V</div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Colombia · Remote · English C1 &amp; Native Spanish
+            </div>
+        </div>
+    </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,200</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Luis brings <strong>a unique combination of foreign trade expertise and bilingual customer service</strong>. His background in international logistics (coordinating shipments at Reckitt Benckiser through Agecoldex) gives him the kind of <strong>multi-stakeholder coordination skills</strong> that Rubicon's nationwide waste management operation demands. He's managed export documentation, liaised between customs agents and freight forwarders, and maintained 90%+ customer satisfaction across his support roles. At $1,200/month with C1 English, he's strong value.
+    </div>
+    <div class="card-section-title">Experience</div>
+    <div class="experience-list">
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
+                <div class="exp-role">Bilingual Customer Care Agent</div>
+                <div class="exp-company">Grubhub / Foundever</div>
+                <div class="exp-date">Aug 2025 – Present</div>
+                <div class="exp-highlight">Multi-channel support · Order lifecycle management · Billing error resolution</div>
+            </div>
+        </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div><div class="exp-line"></div></div>
+            <div class="exp-content">
+                <div class="exp-role">Foreign Trade Assistant</div>
+                <div class="exp-company">Agecoldex / Reckitt Benckiser</div>
+                <div class="exp-date">Sep 2024 – Mar 2025</div>
+                <div class="exp-highlight">International shipment coordination · SAP &amp; SharePoint · Multi-stakeholder liaison</div>
+            </div>
+        </div>
+        <div class="exp-item">
+            <div class="exp-dot-col"><div class="exp-dot"></div></div>
+            <div class="exp-content">
+                <div class="exp-role">Bilingual Customer Service Representative</div>
+                <div class="exp-company">Stand Up Wireless / Foundever</div>
+                <div class="exp-date">Jul 2023 – Sep 2024</div>
+                <div class="exp-highlight">Retention strategies · Upselling · 50% sales conversion on support calls</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">English C1 / Native Spanish</span>
+        <span class="tag key">Foreign Trade &amp; Logistics</span>
+        <span class="tag key">SAP &amp; ERP Systems</span>
+        <span class="tag">Zendesk</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Excel Advanced</span>
+        <span class="tag">Consultative Sales</span>
+    </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Colombia</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">Advanced (C1)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,200 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">Client Communication</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 87%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Logistics &amp; Coordination</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">ERP / CRM Systems</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Data Analysis</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 86%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/f7048023-3d2e-41af-aeba-4ad8c9bd83a7" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <a class="card-resume" href="https://prod-fillout-oregon-s3.s3.us-west-2.amazonaws.com/orgid-351357/flowpublicid-byRsdrRbNeus/d770b0c1-6669-42bb-8e4d-d067e109fe79-zYmUWKEBkPfsNheq3fr2C1eG5OgHNYRQs0b3IjdYcCvfFNfxmM4HFiFKoHMXyUi5JV5ZSrcs1DvnL8EmWE3nVjErEZvfbsT6jzI/RESUME.pdf" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+        View Resume
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Luis is an interesting pick for Rubicon specifically because of his logistics and foreign trade background. Rubicon coordinates waste services across 100,000+ locations with 8,000+ vendor/hauler partners. Luis has experience sitting between multiple stakeholders (customs agents, freight forwarders, port authorities) and keeping operations on track. That coordination muscle translates directly to managing hauler-client relationships. His SAP proficiency and data analysis skills (Power BI, SQL) also make him a candidate who can contribute to Rubicon's data-driven service model.</p>
+    </div>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- ===== COMPARISON TABLE ===== -->
+<section class="why-section fade-in">
+<div class="section-label">Candidate Comparison</div>
+<h2>Side-by-Side Benchmark</h2>
+<p class="why-intro">A clear view of how each candidate stacks up across the dimensions that matter most for Rubicon's Client Service Associate role.</p>
+<div class="table-wrap">
+<table class="comparison-table">
+<thead>
+<tr>
+    <th>Candidate</th>
+    <th>Location</th>
+    <th>English Level</th>
+    <th>Experience</th>
+    <th>CRM / Systems</th>
+    <th>U.S. Client Support</th>
+    <th>High-Volume (40+/day)</th>
+    <th>Rate (USD/mo)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><strong>Judy A ★</strong></td>
+    <td>Colombia</td>
+    <td>C2 / Native</td>
+    <td>7+ years</td>
+    <td>Salesforce, HubSpot, Zendesk, Notion</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span> 80-100+</td>
+    <td><strong>$1,300</strong></td>
+</tr>
+<tr>
+    <td><strong>Juan G</strong></td>
+    <td>Colombia</td>
+    <td>Fluent (ACTFL)</td>
+    <td>5+ years</td>
+    <td>Intercom, Dialpad, Maestro</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span> 30-40+</td>
+    <td><strong>$1,500</strong></td>
+</tr>
+<tr>
+    <td><strong>Genesis M</strong></td>
+    <td>Honduras</td>
+    <td>Bilingual</td>
+    <td>6+ years</td>
+    <td>Salesforce, Zendesk, Einstein</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span> 40+</td>
+    <td><strong>$1,600</strong></td>
+</tr>
+<tr>
+    <td><strong>Ricardo B</strong></td>
+    <td>Nicaragua</td>
+    <td>Bilingual</td>
+    <td>2+ years</td>
+    <td>--</td>
+    <td><span class="check">&#10003;</span></td>
+    <td>--</td>
+    <td><strong>$1,500</strong></td>
+</tr>
+<tr>
+    <td><strong>Gilma A</strong></td>
+    <td>Colombia</td>
+    <td>B2+</td>
+    <td>2 years</td>
+    <td>CRM Software, Excel</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span> 50-60+</td>
+    <td><strong>$1,200</strong></td>
+</tr>
+<tr>
+    <td><strong>Luis V</strong></td>
+    <td>Colombia</td>
+    <td>C1</td>
+    <td>2+ years</td>
+    <td>SAP, Zendesk, Power BI</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span> 50+</td>
+    <td><strong>$1,200</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ===== RECRUITING TEAM ===== -->
+<section class="team-section fade-in">
+<div class="team-inner">
+<div class="section-label">Your Talent Advisor</div>
+<h2>Meet the Team Behind This Search</h2>
+<p class="team-subtitle">Your direct point of contact through every step: from this shortlist to interviews and onboarding.</p>
+<div class="team-grid">
+<!-- Vicky Martinez -->
+<div class="team-card">
+    <div class="team-card-top">
+        <img alt="Vicky Martinez" class="team-photo" src="https://saganrecruitment.com/wp-content/uploads/2025/10/Vicky-Martinez.jpeg"/>
+    </div>
+    <div class="team-card-body">
+        <div class="team-name">Vicky Martinez</div>
+        <div class="team-role">Talent Advisor</div>
+        <div class="team-location">
+            <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Sagan Recruitment
+        </div>
+        <p class="team-bio">Vicky has over four years of experience building talent pipelines and conducting screenings. She is your direct point of contact for scheduling interviews3 and coordinating next steps throughout the hiring process.</p>
+        <a class="team-email" href="mailto:vicky.m@getsagan.com">vicky.m@getsagan.com</a>
+    </div>
+</div>
+<!-- Jesus Pacheco -->
+<div class="team-card">
+    <div class="team-card-top">
+        <img alt="Jesus Pacheco" class="team-photo" src="https://saganrecruitment.com/wp-content/uploads/2025/10/Jesus-Pacheco.jpeg"/>
+    </div>
+    <div class="team-card-body">
+        <div class="team-name">Jesus Pacheco</div>
+        <div class="team-role">Head of Revenue</div>
+        <div class="team-location">
+            <svg fill="none" height="12" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Mendoza, Argentina
+        </div>
+        <p class="team-bio">Leads revenue operations at Sagan. MIT Supply Chain background, 16 years in sales and operations. He oversees the search strategy and advises on candidate fit for Rubicon's team.</p>
+        <a class="team-email" href="mailto:jesus.p@getsagan.com">jesus.p@getsagan.com</a>
+    </div>
+</div>
+</div>
+<!-- Sagan Info Block -->
+<div class="sagan-info">
+    <div class="sagan-logo-wrap">
+        <img alt="Sagan Recruitment" src="https://saganrecruitment.com/wp-content/uploads/2025/08/Sagan-Logo.svg"/>
+    </div>
+    <div class="sagan-divider"></div>
+    <div class="sagan-text">
+        <h3>Powered by Sagan</h3>
+        <p>Sagan connects exceptional professionals from <strong>Latin America, Africa, Asia, the Middle East, Central &amp; Eastern Europe, and beyond</strong> with leading American companies. We run 20,000+ applications through rigorous screening every month so you only see the ones worth your time.</p>
+        <div class="sagan-stats">
+            <div class="sagan-stat"><strong>20,000+</strong> Applications / Month</div>
+            <div class="sagan-stat"><strong>2,000+</strong> Placements</div>
+            <div class="sagan-stat"><strong>30+</strong> Countries</div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER CTA ===== -->
+<section class="footer-cta">
+<h2>Ready to <strong>meet your next Client Service Associate?</strong></h2>
+<p>Tell us who you want to interview and we'll set it up within 24 hours.</p>
+<a class="footer-contact" href="mailto:vicky.m@getsagan.com?cc=jesus.p@getsagan.com">
+    <svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    Schedule Next Steps
+</a>
+<div class="footer-bottom">
+    <div class="footer-logo">Sagan</div>
+    <div class="footer-note">Prepared exclusively for Rubicon · May 2026 · Confidential</div>
+</div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const bars = entry.target.querySelectorAll('.strength-bar');
+            bars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => { bar.style.width = width; }, 200);
+            });
+        }
+    });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.strength-grid').forEach(el => barObserver.observe(el));
+</script>
 </body>
 </html>
