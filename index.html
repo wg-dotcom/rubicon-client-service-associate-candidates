@@ -584,26 +584,79 @@
         margin: 0;
     }
 
-    /* ===== BATCH NAV ===== */
-    .batch-nav {
-        background: var(--rb-dark);
-        text-align: center;
-        padding: 10px 20px;
-        border-top: 1px solid rgba(255,255,255,0.06);
+    /* ===== BATCH TABS ===== */
+    .batch-tabs {
+        display: flex;
+        gap: 4px;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 40px;
+        margin-bottom: 40px;
     }
-    .batch-nav a {
+    .batch-tab {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        color: rgba(255,255,255,0.45);
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 12px 12px 0 0;
         font-family: 'Poppins', sans-serif;
-        font-size: 12px;
-        font-weight: 500;
-        text-decoration: none;
-        letter-spacing: 0.5px;
-        transition: color 0.2s ease;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+        border: none;
+        transition: all 0.3s ease;
+        position: relative;
     }
-    .batch-nav a:hover { color: var(--rb-accent-light); }
+    .batch-tab.active {
+        background: var(--rb-white);
+        color: var(--rb-dark);
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+    }
+    .batch-tab.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--rb-green);
+        border-radius: 3px 3px 0 0;
+    }
+    .batch-tab:not(.active) {
+        background: rgba(0,0,0,0.03);
+        color: var(--rb-gray);
+    }
+    .batch-tab:not(.active):hover {
+        background: rgba(0,0,0,0.06);
+        color: var(--rb-gray-dark);
+    }
+    .batch-tab-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 22px;
+        height: 22px;
+        padding: 0 6px;
+        border-radius: 100px;
+        font-size: 11px;
+        font-weight: 700;
+    }
+    .batch-tab.active .batch-tab-count {
+        background: var(--rb-green);
+        color: var(--rb-white);
+    }
+    .batch-tab:not(.active) .batch-tab-count {
+        background: var(--rb-gray-light);
+        color: var(--rb-gray);
+    }
+    .batch-panel { display: none; }
+    .batch-panel.active { display: block; }
+
+    @media (max-width: 768px) {
+        .batch-tabs { padding: 0 24px; gap: 2px; }
+        .batch-tab { padding: 12px 18px; font-size: 12px; }
+    }
 
     /* ===== ANIMATIONS ===== */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -645,7 +698,7 @@
 <div class="hero-badge">Candidate Presentation</div>
 <h1>Your Next <strong>Client Service Associate.</strong><br/>Carefully Selected.</h1>
 <p class="hero-subtitle">
-    Rubicon needs someone who can own the client experience from the first interaction forward. Responsive, detail-oriented, and built for high-volume support in a fast-moving waste and recycling operation. Ten candidates. All vetted for the role.
+    Rubicon needs someone who can own the client experience from the first interaction forward. Responsive, detail-oriented, and built for high-volume support in a fast-moving waste and recycling operation. Fourteen candidates across two batches. All vetted for the role.
 </p>
 <div class="hero-meta">
     <div class="hero-meta-item">
@@ -657,24 +710,18 @@
         <span class="hero-meta-value">Full-Time</span>
     </div>
     <div class="hero-meta-item">
-        <span class="hero-meta-label">Batch</span>
-        <span class="hero-meta-value">Batch 1 · May 14, 2026</span>
+        <span class="hero-meta-label">Batches</span>
+        <span class="hero-meta-value">Batch 1 (May 14) &middot; Batch 2 (May 26)</span>
     </div>
     <div class="hero-meta-item">
         <span class="hero-meta-label">Compensation Range</span>
-        <span class="hero-meta-value">$1,200 – $2,000 / month</span>
+        <span class="hero-meta-value">$1,200 &ndash; $2,000 / month</span>
     </div>
     <div class="hero-meta-item">
         <span class="hero-meta-label">Candidates Presented</span>
-        <span class="hero-meta-value">10 Vetted Profiles</span>
+        <span class="hero-meta-value">14 Vetted Profiles</span>
     </div>
 </div>
-</div>
-<div class="batch-nav">
-    <a href="https://wg-dotcom.github.io/rubicon-client-service-associate-candidates-b2/">
-        View Batch 2 (4 candidates)
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </a>
 </div>
 </section>
 
@@ -700,10 +747,23 @@
 <!-- ===== CANDIDATES ===== -->
 <section class="candidates-section">
 <div class="candidates-header fade-in">
-    <div class="section-label">Batch 1 · May 14, 2026</div>
+    <div class="section-label">Candidate Profiles</div>
     <h2>The Selection</h2>
-    <p>Ten candidates. All vetted against what Rubicon's client service operation demands.</p>
+    <p>Fourteen candidates across two batches. All vetted against what Rubicon's client service operation demands.</p>
 </div>
+
+<div class="batch-tabs">
+    <button class="batch-tab active" onclick="switchBatch('batch1', this)">
+        Batch 1 &middot; May 14
+        <span class="batch-tab-count">10</span>
+    </button>
+    <button class="batch-tab" onclick="switchBatch('batch2', this)">
+        Batch 2 &middot; May 26
+        <span class="batch-tab-count">4</span>
+    </button>
+</div>
+
+<div id="batch1" class="batch-panel active">
 
 <!-- CANDIDATE 1: Judy A -->
 <div class="candidate-card fade-in">
@@ -1856,6 +1916,458 @@
 </div>
 </div>
 
+</div><!-- /batch1 -->
+
+<div id="batch2" class="batch-panel">
+
+<!-- CANDIDATE B2-1: Maria A -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">MA</div>
+        <div>
+            <div class="card-name">Maria A <span class="card-name-badge">&#9733; Top Recommendation</span></div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Brazil &middot; Remote &middot; Trilingual: Portuguese (Native), English (C2), Spanish (C1)
+            </div>
+        </div>
+    </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,500</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Maria is <strong>the standout in Batch 2 and arguably one of the strongest profiles across both batches</strong>. She brings 10+ years of client intake, lead management, and customer success experience spanning international law firms, a Fortune 500 commodity trader, and healthcare environments. She's currently running full-cycle client intake at a Florida law firm, managing lead funnels, onboarding new employees, and training an AI assistant. Her trilingual capability (Portuguese, English C2, Spanish C1) and HIPAA compliance experience make her a uniquely versatile hire for Rubicon.
+    </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">Trilingual: PT / EN (C2) / ES (C1)</span>
+        <span class="tag key">Client Intake &amp; Conversion (10+ yrs)</span>
+        <span class="tag key">Lead Management</span>
+        <span class="tag">HIPAA Compliance</span>
+        <span class="tag">CRM &amp; Case Management</span>
+        <span class="tag">Medical Interpretation</span>
+        <span class="tag">Employee Onboarding &amp; Training</span>
+        <span class="tag">AI Tool Training</span>
+        <span class="tag">KPI Reporting</span>
+        <span class="tag">Cross-Cultural Communication</span>
+    </div>
+    <div class="card-section-title">Experience Timeline</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Current Role</div>
+            <div class="fit-value">Intake Specialist, Pacin Levine P.A. (Apr 2025 &ndash; Present)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Medical Interpreter, Future Group IT (Jan &ndash; Apr 2025)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Sr. Customer Service Analyst, Louis Dreyfus Company (Jan 2023 &ndash; Nov 2024)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Sr. Customer Service Analyst, Minerva Foods S.A. (Jan 2019 &ndash; Jan 2023)</div>
+        </div>
+    </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Brazil</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">C2 / Near-Native</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Education</div>
+            <div class="fit-value">Master's in Administration (UNESP) &middot; B.S. Production Engineering</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Systems</div>
+            <div class="fit-value">Neos, Intaker, GoHighLevel, DocuSign, Podium, Power BI</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Certifications</div>
+            <div class="fit-value">FSSC 22000 Lead Auditor (SGS) &middot; Medical Interpretation (ALTA)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,500 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">Client Intake &amp; Conversion</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 96%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Multilingual Communication</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 95%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">CRM &amp; Systems Proficiency</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Compliance &amp; Data Integrity</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 94%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/5745dc5e-b02b-4954-83e7-08571f5e5f9f" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Maria is the strongest profile in Batch 2, and she competes directly with the top candidates from Batch 1. Ten years of client-facing experience across law firms, a global commodity trading house, and a major meatpacking company. She's managed global export claims, built complaint management processes from scratch, and reported KPIs directly to C-suite executives. The trilingual capability is rare and valuable, especially if Rubicon serves any Portuguese-speaking markets. At $1,500/month, she's priced at mid-range but delivers senior-level operational maturity. She also trains new hires and has experience refining AI tools, which signals someone who thinks about systems, not just tasks.</p>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- CANDIDATE B2-2: Hanniel T -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">HT</div>
+        <div>
+            <div class="card-name">Hanniel T</div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Colombia &middot; Remote &middot; Bilingual English (C2) &amp; Spanish
+            </div>
+        </div>
+    </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,600</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Hanniel is <strong>an operations-minded support professional who doesn't just close tickets, he optimizes the systems around them</strong>. With 5+ years across fintech (Cash App), healthcare scheduling, and legal intake, he's handled 150-200 daily interactions, maintained 95%+ CSAT, and built internal knowledge bases that reduced escalations by 30%. His mathematics background gives him an analytical edge for data reporting and process improvement. He's also fluent in automation tools like Zapier and Make, which means he can spot inefficiencies and fix them without waiting for engineering.
+    </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">Bilingual English (C2) / Spanish</span>
+        <span class="tag key">Operations &amp; CRM (5+ yrs)</span>
+        <span class="tag key">High-Volume Support (150-200/day)</span>
+        <span class="tag">SLA Adherence (&lt;45s response)</span>
+        <span class="tag">Knowledge Base Development</span>
+        <span class="tag">No-Code Automation (Zapier, Make)</span>
+        <span class="tag">Data Analysis &amp; Power BI</span>
+        <span class="tag">KYC/AML Compliance</span>
+        <span class="tag">HIPAA Compliance</span>
+        <span class="tag">TCPA Compliance</span>
+    </div>
+    <div class="card-section-title">Experience Timeline</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Current Role</div>
+            <div class="fit-value">Intake Specialist, Tort Experts (Jan 2025 &ndash; Present)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Appointment Scheduler, Aspire Health Solutions (Oct &ndash; Dec 2025)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Subject-Matter Expert (SME), Cash App (2023 &ndash; 2025)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Academic Advisor &amp; Enrollment Specialist, Universidad del Valle (2019 &ndash; 2023)</div>
+        </div>
+    </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Cali, Colombia</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">C2 / Native Proficiency</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Education</div>
+            <div class="fit-value">B.S. Mathematics, Universidad del Valle</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Systems</div>
+            <div class="fit-value">Salesforce, HubSpot, Zendesk, Zapier, Make, Power BI, ClickUp, Asana</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Daily Volume</div>
+            <div class="fit-value">150-200 interactions / day</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,600 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">High-Volume Ticket Management</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 95%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Process Automation</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 91%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">CRM &amp; Data Systems</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 93%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Client Communication</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/6736bd55-b520-4fb3-bd8e-7e4397690f13" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Hanniel is the most technically capable candidate in Batch 2. His Cash App SME tenure means he's operated in a fintech environment with strict KYC/AML compliance requirements and sub-45-second SLAs. He built a knowledge base that cut escalations by 30% and empowered 50+ team members. The automation skills (Zapier, Make) are a differentiator: he's the kind of hire who reduces operational overhead over time, not just fills a seat. At $1,600/month, he's priced appropriately for someone who can handle both the day-to-day support volume and the process improvement Rubicon needs. His mathematics degree also means he can produce meaningful performance reports without hand-holding.</p>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- CANDIDATE B2-3: Kevin M -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">KM</div>
+        <div>
+            <div class="card-name">Kevin M</div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Nicaragua &middot; Remote &middot; Bilingual English &amp; Spanish (Native-Level)
+            </div>
+        </div>
+    </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,300</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Kevin brings <strong>4+ years of phone-based support across four major BPO operations</strong>, including Ibex, Concentrix, Teleperformance, and GCS BPO. He's a receptionist at heart: professional call handling, accurate documentation, and the kind of consistent demeanor that keeps clients comfortable during high-volume periods. His 92% first-call resolution rate at Teleperformance and 90% SLA adherence at Concentrix show he can deliver under pressure. With an Industrial Engineering degree, he approaches support operations with a structured, systems-oriented mindset.
+    </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">Bilingual English &amp; Spanish (Native)</span>
+        <span class="tag key">Phone-Based Support (4+ yrs)</span>
+        <span class="tag key">Reception &amp; Call Handling</span>
+        <span class="tag">Sales Development</span>
+        <span class="tag">B2B Technical Support</span>
+        <span class="tag">CRM &amp; Call Logging</span>
+        <span class="tag">Appointment Setting</span>
+        <span class="tag">Lead Generation</span>
+        <span class="tag">Documentation Accuracy</span>
+    </div>
+    <div class="card-section-title">Experience Timeline</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Most Recent</div>
+            <div class="fit-value">Sales Dev / CSR, Ibex (Sep 2024 &ndash; Oct 2025)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Technical Support Specialist, Concentrix (Mar 2023 &ndash; Sep 2024)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">CSR, Teleperformance (Nov 2022 &ndash; Feb 2023)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Lead Gen Executive, GCS BPO (Jan 2017 &ndash; Nov 2019)</div>
+        </div>
+    </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">Managua, Nicaragua</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">Native-Level Bilingual</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Education</div>
+            <div class="fit-value">B.S. Industrial Engineering, National University of Engineering</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Systems</div>
+            <div class="fit-value">Zendesk, Aircall, Salesforce, CRM &amp; Ticketing Platforms</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Key Metrics</div>
+            <div class="fit-value">92% FCR (Teleperformance) &middot; 90% SLA (Concentrix)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,300 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">Phone &amp; Call Handling</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">First-Call Resolution</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 90%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">CRM Documentation</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 88%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Bilingual Client Service</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 91%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/e9de0379-6c2f-4f50-bfb2-ad64ad8d4cfe" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Kevin is the reliable, phone-first candidate in this batch. Four BPO tenures (Ibex, Concentrix, Teleperformance, GCS) mean he's been trained by some of the best operations in the industry. His 92% first-call resolution and consistent SLA adherence make him a low-risk hire for Rubicon's day-to-day support needs. He won't reinvent your systems, but he'll run them consistently and professionally. At $1,300/month, he's competitively priced for the volume and reliability he brings. The Industrial Engineering background is a bonus: he understands process flow and efficiency at a structural level.</p>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- CANDIDATE B2-4: Nakeesha G -->
+<div class="candidate-card fade-in">
+<div class="card">
+<div class="card-top">
+    <div class="card-identity">
+        <div class="card-avatar">NG</div>
+        <div>
+            <div class="card-name">Nakeesha G</div>
+            <div class="card-location">
+                <svg fill="none" height="13" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="13"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Jamaica &middot; Remote &middot; English (Native)
+            </div>
+        </div>
+    </div>
+    <div class="card-rate">
+        <div class="card-rate-amount">$1,200</div>
+        <div class="card-rate-period">USD / Month</div>
+    </div>
+</div>
+<div class="card-body">
+    <div class="card-narrative">
+        Nakeesha brings <strong>3+ years of remote customer service experience with consistently strong performance metrics</strong>. At Influx, she resolved 100+ daily customer issues across chat and email, maintained 90%+ CSAT scores, and reduced repeat contacts by 12%. She designed reusable templates that cut average handle time by 20% and supported training consistency for new hires. Her 98% data accuracy rate and 80%+ First Contact Resolution show someone who's disciplined about documentation and outcomes. As a native English speaker from Jamaica, she eliminates any language barrier concerns entirely.
+    </div>
+    <div class="card-section-title">Core Competencies</div>
+    <div class="tags">
+        <span class="tag dark">English (Native)</span>
+        <span class="tag key">Customer Service (3+ yrs)</span>
+        <span class="tag key">100+ Daily Resolutions</span>
+        <span class="tag">Zendesk &amp; Freshdesk</span>
+        <span class="tag">Chat &amp; Email Support</span>
+        <span class="tag">QA Compliance (95%+)</span>
+        <span class="tag">Template &amp; SOP Design</span>
+        <span class="tag">Data Entry (98% accuracy)</span>
+        <span class="tag">Lead Generation</span>
+    </div>
+    <div class="card-section-title">Experience Timeline</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Most Recent</div>
+            <div class="fit-value">Remote Support Specialist, Influx (Jan 2022 &ndash; Jun 2025)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Customer Service Rep, Sutherland Global (Jul 2021 &ndash; Jan 2022)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Previous</div>
+            <div class="fit-value">Customer Outreach Specialist, Rampart Marketing (Jan &ndash; Mar 2022)</div>
+        </div>
+    </div>
+    <div class="card-section-title">Rubicon Fit Indicators</div>
+    <div class="fit-grid">
+        <div class="fit-item">
+            <div class="fit-label">Location</div>
+            <div class="fit-value">St. Catherine, Jamaica</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">English Level</div>
+            <div class="fit-value">Native Speaker</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Systems</div>
+            <div class="fit-value">Zendesk, Freshdesk, Google Workspace, Slack, Zoom</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Key Metrics</div>
+            <div class="fit-value">90%+ CSAT &middot; 80%+ FCR &middot; 98% Data Accuracy &middot; 95%+ QA</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Daily Volume</div>
+            <div class="fit-value">100+ issues (chat/email) &middot; 80+ calls (phone)</div>
+        </div>
+        <div class="fit-item">
+            <div class="fit-label">Rate</div>
+            <div class="fit-value">$1,200 / month</div>
+        </div>
+    </div>
+    <div class="card-section-title">Strength Profile</div>
+    <div class="strength-grid">
+        <div class="strength-item">
+            <span class="strength-label">High-Volume Support</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 92%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Data Accuracy &amp; Documentation</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 94%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">QA &amp; Compliance</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 93%"></div></div>
+        </div>
+        <div class="strength-item">
+            <span class="strength-label">Process Improvement</span>
+            <div class="strength-bar-bg"><div class="strength-bar" style="width: 87%"></div></div>
+        </div>
+    </div>
+    <a class="card-video" href="https://candidate-video.com/uploads/66a21c0c-76b2-43ae-8545-452fe2c81329" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        Watch Intro Video
+    </a>
+    <div class="recruiter-note">
+        <div class="recruiter-note-label">Recruiter Note</div>
+        <p>Nakeesha is the best value candidate in Batch 2 at $1,200/month. Three and a half years at Influx handling 100+ daily issues with 90%+ CSAT and 98% data accuracy is a strong baseline. She's also designed templates and SOPs that cut handle time by 20%, which shows operational thinking beyond just resolving tickets. As a native English speaker from Jamaica, there's zero language friction for U.S. client interactions. The tradeoff: she doesn't bring the CRM depth or automation skills of Hanniel or the senior-level experience of Maria. But for a reliable, high-volume support hire at a competitive rate, she delivers.</p>
+    </div>
+</div>
+</div>
+</div>
+
+</div><!-- /batch2 -->
+
 </section>
 
 <!-- ===== COMPARISON TABLE ===== -->
@@ -1978,6 +2490,49 @@
     <td><span class="check">&#10003;</span> 60+</td>
     <td><strong>$2,000</strong></td>
 </tr>
+<tr>
+    <td colspan="8" style="background: var(--rb-dark); color: var(--rb-accent-light); font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 10px;">Batch 2 &middot; May 26, 2026</td>
+</tr>
+<tr>
+    <td><strong>Maria A &#9733;</strong></td>
+    <td>Brazil</td>
+    <td>C2 / Near-Native</td>
+    <td>10+ years</td>
+    <td>Neos, Intaker, GoHighLevel, DocuSign, Power BI</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span></td>
+    <td><strong>$1,500</strong></td>
+</tr>
+<tr>
+    <td><strong>Hanniel T</strong></td>
+    <td>Colombia</td>
+    <td>C2 / Native</td>
+    <td>5+ years</td>
+    <td>Salesforce, HubSpot, Zendesk, Zapier, Make, Power BI</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span> 150-200</td>
+    <td><strong>$1,600</strong></td>
+</tr>
+<tr>
+    <td><strong>Kevin M</strong></td>
+    <td>Nicaragua</td>
+    <td>Native-Level</td>
+    <td>4+ years</td>
+    <td>Zendesk, Aircall, Salesforce</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span></td>
+    <td><strong>$1,300</strong></td>
+</tr>
+<tr>
+    <td><strong>Nakeesha G</strong></td>
+    <td>Jamaica</td>
+    <td>Native Speaker</td>
+    <td>3+ years</td>
+    <td>Zendesk, Freshdesk, Google Workspace</td>
+    <td><span class="check">&#10003;</span></td>
+    <td><span class="check">&#10003;</span> 100+</td>
+    <td><strong>$1,200</strong></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -2063,6 +2618,28 @@ const barObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 
 document.querySelectorAll('.strength-grid').forEach(el => barObserver.observe(el));
+
+function switchBatch(batchId, btn) {
+    document.querySelectorAll('.batch-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.batch-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(batchId).classList.add('active');
+    btn.classList.add('active');
+    // Re-observe fade-in elements in the newly visible panel
+    const panel = document.getElementById(batchId);
+    panel.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.remove('visible');
+        observer.observe(el);
+    });
+    panel.querySelectorAll('.strength-grid').forEach(el => barObserver.observe(el));
+    // Scroll to tabs
+    document.querySelector('.batch-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// Handle direct link to batch 2 via URL hash
+if (window.location.hash === '#batch2') {
+    const b2btn = document.querySelectorAll('.batch-tab')[1];
+    if (b2btn) switchBatch('batch2', b2btn);
+}
 </script>
 </body>
 </html>
